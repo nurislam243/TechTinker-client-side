@@ -2,8 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home/Home';
-import Login from '../pages/Auth/Login';
-import Register from '../pages/Auth/Register';
+import Login from '../pages/Auth/Login';;
 import PrivateRoute from './PrivateRoute';
 import AddService from '../pages/Dashboard/AddService';
 import ServiceDetails from '../pages/Services/ServiceDetails';
@@ -11,6 +10,7 @@ import ManageService from '../pages/Dashboard/ManageService';
 import BookService from '../pages/Services/BookService';
 import Booked from '../pages/Dashboard/Booked';
 import ServiceToDo from '../pages/Dashboard/ServiceToDo';
+import Register from '../pages/Auth/Register';
 
 const router = createBrowserRouter([
     {

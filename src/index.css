@@ -1,2 +1,47 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "techTinker";
+    default: true;
+    prefersdark: false;
+    color-scheme: light;
+    /* Base colors - light backgrounds and content */
+    --color-base-100: oklch(98% 0.01 280); /* lightest background */
+    --color-base-200: oklch(95% 0.015 280);
+    --color-base-300: oklch(92% 0.02 280);
+    --color-base-content: oklch(20% 0.05 280); /* dark text on base */
+
+    /* Primary color based on #00E976 (a bright green) */
+    --color-primary: oklch(80% 0.25 145); /* base green tone */
+    --color-primary-content: oklch(20% 0.03 145); /* dark text for contrast */
+
+    /* Secondary color based on #FC17A6 (pink) */
+    --color-secondary: oklch(72% 0.28 20); /* vibrant pink tone */
+    --color-secondary-content: oklch(98% 0.01 20); /* white/light text */
+
+    /* Accent color - complimentary to primary (greenish-blue tone) */
+    --color-accent: oklch(75% 0.21 190);
+    --color-accent-content: oklch(98% 0.01 190);
+
+    /* Neutral - used for body text, borders */
+    --color-neutral: oklch(40% 0.03 250); /* dark gray-blue */
+    --color-neutral-content: oklch(98% 0.01 250); /* light text on dark */
+
+    /* Info - calm blue tone */
+    --color-info: oklch(70% 0.23 220);
+    --color-info-content: oklch(98% 0.01 220);
+
+    /* Success - green tone closer to primary */
+    --color-success: oklch(70% 0.24 140);
+    --color-success-content: oklch(98% 0.01 140);
+
+    /* Warning - yellow/orange tone */
+    --color-warning: oklch(82% 0.24 85);
+    --color-warning-content: oklch(20% 0.05 85);
+
+    /* Error - vivid red tone */
+    --color-error: oklch(62% 0.28 30);
+    --color-error-content: oklch(98% 0.01 30);
+  
+  }
