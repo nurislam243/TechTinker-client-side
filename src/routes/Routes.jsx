@@ -11,15 +11,22 @@ import BookService from '../pages/Services/BookService';
 import Booked from '../pages/Dashboard/Booked';
 import ServiceToDo from '../pages/Dashboard/ServiceToDo';
 import Register from '../pages/Auth/Register';
+import AllServices from '../pages/Services/AllServices';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: MainLayout,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: '/services',
+                Component: AllServices
             },
             {
                 path: '/add-service',

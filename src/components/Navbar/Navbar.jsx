@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { getAuth, signOut } from 'firebase/auth';
+import { Tooltip } from 'react-tooltip';
+import { CiDark, CiLight } from 'react-icons/ci';
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, theme, setTheme  } = useContext(AuthContext);
+  console.log(theme);
 
   // handle logout functionality
   const handleLogOut = () =>{
@@ -44,29 +46,43 @@ const Navbar = () => {
       </div>
     </div>
     <div className="navbar-end">
-      <div className="navbar-center hidden lg:flex">
+      <div className="hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-              <li><a>Home</a></li>
+              <li><Link to={'/'}>Home</Link></li>
+              <li><NavLink to={'/services'}>Services</NavLink></li>
               {
-                user && <li>
+                user && <>
+                <li>
                     <details>
-                    <summary>Services</summary>
+                    <summary>Dashboard</summary>
                     <ul className="p-1 w-[150px]">
                         <li><NavLink>Add Service</NavLink></li>
                         <li><NavLink>Manage Service</NavLink></li>
                         <li><NavLink>Booked-Services</NavLink></li>
-                        <li><NavLink>Service-To-Do</NavLink></li>
-                        
+                        <li><NavLink>Service-To-Do</NavLink></li>                       
                     </ul>
                     </details>
                 </li>
+                </>
               }
-              <li><a>Item 3</a></li>
           </ul>
       </div>
-      <div className="">
+      <div className="flex items-center">
+        <button 
+        onClick={() => setTheme(!theme)} 
+        className='cursor-pointer @min-[340px]:flex hidden'
+        data-tooltip-id="theme-tooltip"
+        data-tooltip-content={theme ? "Enable Dark Mode" : "Enable Light Mode"}
+        data-tooltip-place="top"
+
+        >
+            {
+              theme ? <CiDark size={40} /> : <CiLight size={40} />
+            }
+        </button>
+        <Tooltip id="theme-tooltip" />
         {
-          user ? <button onClick={handleLogOut}>Logout</button> :<Link to={'/login'} className="btn">Login</Link>
+          user ? <button onClick={handleLogOut}>Logout</button> : <Link to={'/login'} className="btn">Login</Link>
         }
       </div>
     </div>
