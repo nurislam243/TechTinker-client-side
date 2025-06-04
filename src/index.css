@@ -2,46 +2,91 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-    name: "techTinker";
-    default: true;
-    prefersdark: false;
-    color-scheme: light;
-    /* Base colors - light backgrounds and content */
-    --color-base-100: oklch(98% 0.01 280); /* lightest background */
-    --color-base-200: oklch(95% 0.015 280);
-    --color-base-300: oklch(92% 0.02 280);
-    --color-base-content: oklch(20% 0.05 280); /* dark text on base */
+  name: "techTinker";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
 
-    /* Primary color based on #00E976 (a bright green) */
-    --color-primary: oklch(80% 0.25 145); /* base green tone */
-    --color-primary-content: oklch(20% 0.03 145); /* dark text for contrast */
+  /* Base backgrounds */
+  --color-base-100: oklch(98% 0.01 280); 
+  --color-base-200: oklch(95% 0.015 280); 
+  --color-base-300: oklch(90% 0.02 280); 
+  --color-base-content: oklch(20% 0.04 280); /* dark text */
 
-    /* Secondary color based on #FC17A6 (pink) */
-    --color-secondary: oklch(72% 0.28 20); /* vibrant pink tone */
-    --color-secondary-content: oklch(98% 0.01 20); /* white/light text */
+  /*  Primary: #009688 (Teal) */
+  --color-primary: oklch(65% 0.18 185); 
+  --color-primary-content: oklch(98% 0.01 185); 
 
-    /* Accent color - complimentary to primary (greenish-blue tone) */
-    --color-accent: oklch(75% 0.21 190);
-    --color-accent-content: oklch(98% 0.01 190);
+  /* Secondary: #FF5722 (Deep Orange) */
+  --color-secondary: oklch(72% 0.27 45); 
+  --color-secondary-content: oklch(98% 0.01 45); 
 
-    /* Neutral - used for body text, borders */
-    --color-neutral: oklch(40% 0.03 250); /* dark gray-blue */
-    --color-neutral-content: oklch(98% 0.01 250); /* light text on dark */
+  /* Accent color - slightly lighter teal */
+  --color-accent: oklch(70% 0.21 180); 
+  --color-accent-content: oklch(98% 0.01 180); 
 
-    /* Info - calm blue tone */
-    --color-info: oklch(70% 0.23 220);
-    --color-info-content: oklch(98% 0.01 220);
+  /* Neutral colors */
+  --color-neutral: oklch(35% 0.03 250); 
+  --color-neutral-content: oklch(96% 0.01 250); 
 
-    /* Success - green tone closer to primary */
-    --color-success: oklch(70% 0.24 140);
-    --color-success-content: oklch(98% 0.01 140);
+  /* Info - blue tone */
+  --color-info: oklch(75% 0.21 220); 
+  --color-info-content: oklch(98% 0.01 220); 
 
-    /* Warning - yellow/orange tone */
-    --color-warning: oklch(82% 0.24 85);
-    --color-warning-content: oklch(20% 0.05 85);
+  /* Success - green tone */
+  --color-success: oklch(70% 0.24 140); 
+  --color-success-content: oklch(98% 0.01 140); 
 
-    /* Error - vivid red tone */
-    --color-error: oklch(62% 0.28 30);
-    --color-error-content: oklch(98% 0.01 30);
-  
-  }
+  /* Warning - orange/yellow */
+  --color-warning: oklch(80% 0.23 85); 
+  --color-warning-content: oklch(20% 0.05 85); 
+
+  /* Error - red tone */
+  --color-error: oklch(62% 0.28 30); 
+  --color-error-content: oklch(98% 0.01 30); 
+}
+
+
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  /* Dark base backgrounds */
+  --color-base-100: oklch(20% 0.01 250); /* Darkest background */
+  --color-base-200: oklch(25% 0.015 250);
+  --color-base-300: oklch(30% 0.02 250);
+  --color-base-content: oklch(95% 0.01 250); /* Light text */
+
+  /* Primary - #009688 (Teal) */
+  --color-primary: oklch(65% 0.18 180);
+  --color-primary-content: oklch(98% 0.01 180);
+
+  /* Secondary - #FF5722 (Deep Orange) */
+  --color-secondary: oklch(70% 0.25 40);
+  --color-secondary-content: oklch(98% 0.01 40);
+
+  /* Accent (slightly lighter teal) */
+  --color-accent: oklch(72% 0.16 185);
+  --color-accent-content: oklch(10% 0.01 185);
+
+  /* Neutral - for borders/text */
+  --color-neutral: oklch(35% 0.02 260);
+  --color-neutral-content: oklch(90% 0.01 260);
+
+  /* Info - calm blue */
+  --color-info: oklch(72% 0.22 220);
+  --color-info-content: oklch(98% 0.01 220);
+
+  /* Success - green */
+  --color-success: oklch(68% 0.20 140);
+  --color-success-content: oklch(98% 0.01 140);
+
+  /* Warning - orange/yellow */
+  --color-warning: oklch(78% 0.25 85);
+  --color-warning-content: oklch(15% 0.01 85);
+
+  /* Error - red */
+  --color-error: oklch(62% 0.28 30);
+  --color-error-content: oklch(98% 0.01 30);
+}
+
+
