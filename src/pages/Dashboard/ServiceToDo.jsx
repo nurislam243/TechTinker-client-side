@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Spinner = () => {
+const ServiceToDo = () => {
     return (
         <div>
-            spinner
+            service to do
         </div>
     );
 };
 
-export default Spinner;
+export default ServiceToDo;

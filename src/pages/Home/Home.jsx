@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Spinner = () => {
+const Home = () => {
     return (
         <div>
-            spinner
+            
         </div>
     );
 };
 
-export default Spinner;
+export default Home;
