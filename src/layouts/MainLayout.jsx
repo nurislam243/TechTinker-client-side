@@ -9,7 +9,9 @@ const MainLayout = () => {
     return (
         <div className='@container' data-theme={theme ? 'techTinker' : 'dark'}>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className="min-h-[85vh]">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );
