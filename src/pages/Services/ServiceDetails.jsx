@@ -1,8 +1,39 @@
+import axios from "axios";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
   const service = useLoaderData(); 
   const { _id, description, imageUrl, price, serviceArea, serviceName, serviceProvider } = service;
+
+ const handlePurchase = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const bookingInfoData = Object.fromEntries(formData.entries());
+  const bookingInfo = {
+    ...bookingInfoData,
+    serviceStatus: 'pending'
+  }
+
+  axios.post('http://localhost:3000/bookings', bookingInfo)
+            .then(res => {
+                console.log(res.data)
+                if(res.data.insertedId){
+                  document.getElementById("booking_modal").close()
+                  Swal.fire({
+                      icon: "success",
+                      title: "Your services has been purchase successfully",
+                      showConfirmButton: false,
+                      timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+}
+
 
 
   return (
@@ -46,36 +77,41 @@ const ServiceDetails = () => {
         <div className="modal-box">
           <h3 className="font-bold text-xl mb-4">Book Service</h3>
 
-          <div className="space-y-3">
-            <input type="text" value={_id} disabled className="input input-bordered w-full" />
-            <input type="text" value={serviceName} disabled className="input input-bordered w-full" />
-            <input type="text" value={imageUrl} disabled className="input input-bordered w-full" />
-            <input type="text" value={serviceProvider.email} disabled className="input input-bordered w-full" />
-            <input type="text" value={serviceProvider.name} disabled className="input input-bordered w-full" />
-            <input type="email" value={"currentUser@email.com"} disabled className="input input-bordered w-full" />
-            <input type="text" value={"Current User Name"} disabled className="input input-bordered w-full" />
+          <form onSubmit={handlePurchase}>
+  <div className="space-y-3">
+    <input type="text" name="serviceId" value={_id} className="input input-bordered w-full" readOnly />
+    <input type="text" name="serviceName" value={serviceName} className="input input-bordered w-full" readOnly />
+    <input type="text" name="imageUrl" value={imageUrl} className="input input-bordered w-full" readOnly />
+    <input type="text" name="providerEmail" value={serviceProvider.email} className="input input-bordered w-full" readOnly />
+    <input type="text" name="providerName" value={serviceProvider.name} className="input input-bordered w-full" readOnly />
+    <input type="email" name="userEmail" value={"currentUser@email.com"} className="input input-bordered w-full" readOnly />
+    <input type="text" name="userName" value={"Current User Name"} className="input input-bordered w-full" readOnly />
+    
+    <input
+      type="date"
+      name="serviceDate"
+      className="input input-bordered w-full"
+      required
+    />
+    <textarea
+      name="instruction"
+      placeholder="Special Instruction"
+      className="textarea textarea-bordered w-full"
+    ></textarea>
 
-            <input
-              type="date"
-              name="serviceDate"
-              className="input input-bordered w-full"
-              required
-            />
-            <textarea
-              name="instruction"
-              placeholder="Special Instruction"
-              className="textarea textarea-bordered w-full"
-            ></textarea>
+    <input type="text" name="price" value={`$${price}`} className="input input-bordered w-full" readOnly />
+  </div>
 
-            <input type="text" value={`$${price}`} disabled className="input input-bordered w-full" />
-          </div>
+  <div className="modal-action">
+    <button type="button" onClick={() => document.getElementById("booking_modal").close()} className="btn">
+      Close
+    </button>
+    <button type="submit" className="btn btn-primary ml-2">
+      Purchase
+    </button>
+  </div>
+</form>
 
-          <div className="modal-action">
-            <form method="dialog">
-              <button className="btn">Close</button>
-              <button type="submit" className="btn btn-primary ml-2">Purchase</button>
-            </form>
-          </div>
         </div>
       </dialog>
     </section>

@@ -48,6 +48,15 @@ const MyServiceCard = ({service}) => {
           <h2 className="text-2xl font-bold mb-4 text-purple-700">Edit Service</h2>
           <form className="space-y-4">
             <div>
+              <label className="block font-medium">Service Image Url</label>
+              <input
+                type="text"
+                name="imageUrl"
+                defaultValue={imageUrl}
+                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+              />
+            </div>
+            <div>
               <label className="block font-medium">Service Name</label>
               <input
                 type="text"
