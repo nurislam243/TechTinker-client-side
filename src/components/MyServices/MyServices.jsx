@@ -10,7 +10,6 @@ const MyServices = ({manageServicesPromise}) => {
         ) : services.map(service => <MyServiceCard service={service}></MyServiceCard>)
 
 }
-        
         </div>
     );
 };

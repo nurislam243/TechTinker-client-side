@@ -1,8 +1,12 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const ServiceDetails = () => {
+  const { user } = useContext(AuthContext);
+
   const service = useLoaderData(); 
   const { _id, description, imageUrl, price, serviceArea, serviceName, serviceProvider } = service;
 
@@ -78,39 +82,39 @@ const ServiceDetails = () => {
           <h3 className="font-bold text-xl mb-4">Book Service</h3>
 
           <form onSubmit={handlePurchase}>
-  <div className="space-y-3">
-    <input type="text" name="serviceId" value={_id} className="input input-bordered w-full" readOnly />
-    <input type="text" name="serviceName" value={serviceName} className="input input-bordered w-full" readOnly />
-    <input type="text" name="imageUrl" value={imageUrl} className="input input-bordered w-full" readOnly />
-    <input type="text" name="providerEmail" value={serviceProvider.email} className="input input-bordered w-full" readOnly />
-    <input type="text" name="providerName" value={serviceProvider.name} className="input input-bordered w-full" readOnly />
-    <input type="email" name="userEmail" value={"currentUser@email.com"} className="input input-bordered w-full" readOnly />
-    <input type="text" name="userName" value={"Current User Name"} className="input input-bordered w-full" readOnly />
-    
-    <input
-      type="date"
-      name="serviceDate"
-      className="input input-bordered w-full"
-      required
-    />
-    <textarea
-      name="instruction"
-      placeholder="Special Instruction"
-      className="textarea textarea-bordered w-full"
-    ></textarea>
+            <div className="space-y-3">
+              <input type="text" name="serviceId" defaultValue={_id} className="input input-bordered w-full" readOnly />
+              <input type="text" name="serviceName" defaultValue={serviceName} className="input input-bordered w-full" readOnly />
+              <input type="text" name="imageUrl" defaultValue={imageUrl} className="input input-bordered w-full" readOnly />
+              <input type="text" name="providerEmail" defaultValue={serviceProvider.email} className="input input-bordered w-full" readOnly />
+              <input type="text" name="providerName" defaultValue={serviceProvider.name} className="input input-bordered w-full" readOnly />
+              <input type="email" name="userEmail" defaultValue={user.email} className="input input-bordered w-full" readOnly />
+              <input type="text" name="userName" defaultValue={user.displayName} className="input input-bordered w-full" readOnly />
+              
+              <input
+                type="date"
+                name="serviceDate"
+                className="input input-bordered w-full"
+                required
+              />
+              <textarea
+                name="instruction"
+                placeholder="Special Instruction"
+                className="textarea textarea-bordered w-full"
+              ></textarea>
 
-    <input type="text" name="price" value={`$${price}`} className="input input-bordered w-full" readOnly />
-  </div>
+              <input type="text" name="price" defaultValue={`$${price}`} className="input input-bordered w-full" readOnly />
+            </div>
 
-  <div className="modal-action">
-    <button type="button" onClick={() => document.getElementById("booking_modal").close()} className="btn">
-      Close
-    </button>
-    <button type="submit" className="btn btn-primary ml-2">
-      Purchase
-    </button>
-  </div>
-</form>
+            <div className="modal-action">
+              <button type="button" onClick={() => document.getElementById("booking_modal").close()} className="btn">
+                Close
+              </button>
+              <button type="submit" className="btn btn-primary ml-2">
+                Purchase
+              </button>
+            </div>
+          </form>
 
         </div>
       </dialog>

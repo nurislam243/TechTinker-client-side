@@ -58,7 +58,7 @@ const Navbar = () => {
                     <ul className="p-1 w-[150px]">
                         <li><NavLink to={'/add-service'}>Add Service</NavLink></li>
                         <li><NavLink to={'/manage-service'}>Manage Service</NavLink></li>
-                        <li><NavLink>Booked-Services</NavLink></li>
+                        <li><NavLink to={'/my-bookings'}>Booked-Services</NavLink></li>
                         <li><NavLink>Service-To-Do</NavLink></li>                       
                     </ul>
                     </details>
