@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const PopularServiceCard = ({service}) => {
-    const {description, imageUrl, price, serviceArea, serviceName, serviceProvider} = service;
+    const {description, imageUrl, price, serviceArea, serviceName, serviceProvider, _id} = service;
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <img
@@ -26,9 +27,9 @@ const PopularServiceCard = ({service}) => {
                 </div>
                 <div className="flex items-center justify-between">
                 <span className="text-xl font-bold text-green-600">{price}</span>
-                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                <Link to={`/services/${_id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
                     View Details
-                </button>
+                </Link>
                 </div>
             </div>
         </div>

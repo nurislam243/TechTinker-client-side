@@ -1,6 +1,7 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
-const ToDoRow = ({ toDo, handleStatusChange }) => {
+const ToDoRow = ({ toDo }) => {
   const {
     _id,
     serviceName,
@@ -12,6 +13,19 @@ const ToDoRow = ({ toDo, handleStatusChange }) => {
     price,
     serviceStatus
   } = toDo;
+  const [status, setStatus] = useState(serviceStatus);
+
+  const handleStatusChange = (value) =>{
+    axios.patch(`http://localhost:3000/bookings/${_id}`, { updatedStatus: value })
+    .then(res => {
+      console.log(res.data)
+      // setStatus(value)
+      setStatus(value)
+      console.log(value);
+    })
+    .catch(err => console.error(err));
+  } 
+
 
   const statusColor = {
     pending: 'badge-warning',
@@ -43,15 +57,15 @@ const ToDoRow = ({ toDo, handleStatusChange }) => {
         <span className="text-purple-700 font-semibold">{price}</span>
       </td>
       <td>
-        <span className={`badge ${statusColor[serviceStatus]} capitalize`}>
-          {serviceStatus}
+        <span className={`badge ${statusColor[status]} capitalize`}>
+          {status}
         </span>
       </td>
       <td>
         <select
           className="select select-bordered select-sm"
-          value={serviceStatus}
-          onChange={(e) => handleStatusChange(_id, e.target.value)}
+          value={status}
+          onChange={(e) => handleStatusChange(e.target.value)}
         >
           <option value="pending">Pending</option>
           <option value="working">Working</option>
