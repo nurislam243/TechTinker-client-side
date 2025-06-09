@@ -52,11 +52,10 @@ const Banner = () => {
             cssMode={true}
             mousewheel={true}
             keyboard={true}
-            modules={[Autoplay, Pagination, Navigation, Mousewheel, Keyboard]}
+            modules={[ Pagination, Navigation, Mousewheel, Keyboard]}
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
-            autoplay={{ delay: 4000 }}
             pagination={{ clickable: true }}
         >
             {

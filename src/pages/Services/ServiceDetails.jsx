@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import Reviews from "../../components/Reviews/Reviews";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
@@ -118,6 +119,7 @@ const ServiceDetails = () => {
 
         </div>
       </dialog>
+      <Reviews></Reviews>
     </section>
   );
 };

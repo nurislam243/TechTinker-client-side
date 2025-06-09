@@ -2,8 +2,8 @@ import React from 'react';
 
 const Spinner = () => {
     return (
-        <div>
-            spinner
+        <div className='absolute top-[350px] lg:top-[380px] w-full flex justify-center z-50'>
+            <span class="loader"></span>
         </div>
     );
 };

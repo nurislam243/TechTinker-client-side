@@ -13,6 +13,7 @@ import ServiceToDo from '../pages/Dashboard/ServiceToDo';
 import Register from '../pages/Auth/Register';
 import AllServices from '../pages/Services/AllServices';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import Spinner from '../components/Ui/Spinner';
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 loader:  () => fetch('http://localhost:3000/services'),
+                HydrateFallback: Spinner,
                 Component: AllServices
             },
             {
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`),
+                HydrateFallback: Spinner,
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             },
             {

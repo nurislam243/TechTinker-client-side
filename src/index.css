@@ -89,4 +89,38 @@
   --color-error-content: oklch(98% 0.01 30);
 }
 
+/* loading spinner style */
+
+.loader {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        background-image:
+          linear-gradient(#FF5722 26px, transparent 0) ,
+          linear-gradient(#009688 26px, transparent 0) ,
+          linear-gradient(#009688 26px, transparent 0) ,
+          linear-gradient(#FF5722 26px, transparent 0);
+        background-repeat: no-repeat;
+        background-size: 26px 26px;
+        background-position: left top , left bottom , right top , right bottom;
+        animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          width: 80px;
+          height: 80px;
+          transform: rotate(0deg)
+        }
+        50% {
+          width: 40px;
+          height: 40px;
+          transform: rotate(180deg)
+        }
+        100% {
+          width: 80px;
+          height: 80px;
+          transform: rotate(360deg)
+        }
+      }
+    
 
