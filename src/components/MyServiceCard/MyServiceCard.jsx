@@ -1,6 +1,28 @@
+import axios from "axios";
 
 const MyServiceCard = ({service}) => {
-    const { _id, description, imageUrl, price, serviceArea, serviceName } = service
+    const { _id, description, imageUrl, price, serviceArea, serviceName } = service;
+
+    const handleEdit = (e) =>{
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const updatedService = Object.fromEntries(formData.entries());
+      
+
+      // send updated data to db
+      axios.put(`http://localhost:3000/services/${_id}`, updatedService)
+      .then(res => {
+        if(res.data.modifiedCount){
+          document.getElementById(`edit-modal-${_id}`).close();
+          alert('updated successfully')
+        }
+      })
+      .catch(error =>{
+        console.log(error);
+      })
+
+    }
     return (
         <div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -42,11 +64,11 @@ const MyServiceCard = ({service}) => {
                 </div>
             </div>
 
-            {/* edit modal */}
+        {/* edit modal */}
         <dialog id={`edit-modal-${_id}`} className="modal">
         <div className="modal-box max-w-xl">
           <h2 className="text-2xl font-bold mb-4 text-purple-700">Edit Service</h2>
-          <form className="space-y-4">
+          <form onSubmit={handleEdit} className="space-y-4">
             <div>
               <label className="block font-medium">Service Image Url</label>
               <input
