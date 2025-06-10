@@ -1,7 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const ToDoRow = ({ toDo }) => {
+  const { user } = useContext(AuthContext);
   const {
     _id,
     serviceName,
@@ -16,12 +18,17 @@ const ToDoRow = ({ toDo }) => {
   const [status, setStatus] = useState(serviceStatus);
 
   const handleStatusChange = (value) =>{
-    axios.patch(`http://localhost:3000/bookings/${_id}`, { updatedStatus: value })
+    axios.patch(`http://localhost:3000/bookings/${_id}`, { 
+      updatedStatus: value,
+      email: user.email
+    },
+    {
+    withCredentials: true
+  })
     .then(res => {
       console.log(res.data)
       // setStatus(value)
       setStatus(value)
-      console.log(value);
     })
     .catch(err => console.error(err));
   } 

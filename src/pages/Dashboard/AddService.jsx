@@ -64,7 +64,8 @@ const AddService = () => {
     axios.post('http://localhost:3000/services', newService, {
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      withCredentials: true
     })
     .then(res => {
       console.log('after service save', res.data);

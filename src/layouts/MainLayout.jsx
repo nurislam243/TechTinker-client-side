@@ -3,11 +3,13 @@ import { Outlet } from 'react-router';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import { AuthContext } from '../context/AuthContext/AuthContext';
+import TopBar from '../components/TopBar/TopBar';
 
 const MainLayout = () => {
     const { theme } = useContext(AuthContext);
     return (
         <div className='@container' data-theme={theme ? 'techTinker' : 'dark'}>
+            <TopBar></TopBar>
             <Navbar></Navbar>
             <div className="min-h-[85vh] mt-[56px]">
                 <Outlet></Outlet>

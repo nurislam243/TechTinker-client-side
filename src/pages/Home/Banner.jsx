@@ -10,37 +10,37 @@ const Banner = () => {
    const sliderCategories = [
   {
     "id": 1,
-    "image": "slide1.jpg",
+    "image": "https://i.ibb.co/8gd67W5w/technician-wearing-white-antistatic-gloves-plaid-shirt-sitting-his-desk-using-precision-screwdriver.jpg",
     "title": "Empower Your Devices with Smart Repair",
     "description": "Get expert solutions for all your tech troubles—fast, affordable, and reliable."
   },
   {
     "id": 2,
-    "image": "slide2.jpg",
+    "image": "https://i.ibb.co/LzqScnM0/classmates-studying-home-1.jpg",
     "title": "Your Gadget’s Best Friend",
     "description": "Trust TechTinker to fix your phones, laptops, and gadgets with precision care."
   },
   {
     "id": 3,
-    "image": "slide3.jpg",
+    "image": "https://i.ibb.co/pBdPF03N/view-futuristic-musician-1.jpg",
     "title": "Book. Fix. Relax.",
     "description": "Book a service in minutes. Let our experts do the rest—right at your doorstep."
   },
   {
     "id": 4,
-    "image": "slide4.jpg",
+    "image": "https://i.ibb.co/0RLw8tqp/big-brother-surveillance-concept-composition-2.jpg",
     "title": "Smart Solutions, Smarter Devices",
     "description": "Whether it’s hardware or software, we’ve got your tech needs covered."
   },
   {
     "id": 5,
-    "image": "slide5.jpg",
+    "image": "https://i.ibb.co/4wpFKWcJ/young-male-technician-repairing-computer-workshop-min.jpg",
     "title": "Tech Care You Can Count On",
     "description": "Certified professionals, genuine parts, and transparent pricing—only at TechTinker."
   },
   {
     "id": 6,
-    "image": "slide6.jpg",
+    "image": "https://i.ibb.co/fYBH009K/electronic-technician-holds-two-identical-smartphones-comparison-one-hand-broken-another-new-1.jpg",
     "title": "We Revive, You Reuse",
     "description": "Give your old devices a new life. Let us handle the repairs sustainably."
   }
@@ -52,10 +52,11 @@ const Banner = () => {
             cssMode={true}
             mousewheel={true}
             keyboard={true}
-            modules={[ Pagination, Navigation, Mousewheel, Keyboard]}
+            modules={[ Autoplay, Pagination, Navigation, Mousewheel, Keyboard]}
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
+            autoplay={{ delay: 6000 }}
             pagination={{ clickable: true }}
         >
             {

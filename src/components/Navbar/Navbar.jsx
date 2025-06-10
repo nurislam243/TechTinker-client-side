@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { useContext, useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router'; // Fixed router import
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { getAuth, signOut } from 'firebase/auth';
 import { Tooltip } from 'react-tooltip';
@@ -8,6 +8,17 @@ import { CiDark, CiLight } from 'react-icons/ci';
 const Navbar = () => {
   const { user, theme, setTheme } = useContext(AuthContext);
   const {isOpen, setIsOpen} = useState(true);
+  const [isShrunk, setIsShrunk] = useState(false);
+
+  //  Handle Shrink on Scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsShrunk(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleLogOut = () => {
     const auth = getAuth();
@@ -20,17 +31,17 @@ const Navbar = () => {
 
   const navItems = (
     <>
-      <li><NavLink to='/' onClick={()=> setIsOpen(false)}>Home</NavLink></li>
-      <li><NavLink to='/services' onClick={()=> setIsOpen(false)}>Services</NavLink></li>
+      <li><NavLink to='/' onClick={() => setIsOpen(false)}>Home</NavLink></li>
+      <li><NavLink to='/services' onClick={() => setIsOpen(false)}>Services</NavLink></li>
       {user && (
         <li>
           <details>
             <summary>Dashboard</summary>
             <ul className="p-1 w-[150px]">
               <li><NavLink to='/add-service' onClick={() => setIsOpen(false)}>Add Service</NavLink></li>
-              <li><NavLink to='/manage-service' onClick={()=> setIsOpen(false)}>Manage Service</NavLink></li>
-              <li><NavLink to='/my-bookings' onClick={()=> setIsOpen(false)}>Booked-Services</NavLink></li>
-              <li><NavLink to='/service-to-do' onClick={()=> setIsOpen(false)}>Service-To-Do</NavLink></li>
+              <li><NavLink to='/manage-service' onClick={() => setIsOpen(false)}>Manage Service</NavLink></li>
+              <li><NavLink to='/my-bookings' onClick={() => setIsOpen(false)}>Booked-Services</NavLink></li>
+              <li><NavLink to='/service-to-do' onClick={() => setIsOpen(false)}>Service-To-Do</NavLink></li>
             </ul>
           </details>
         </li>
@@ -39,15 +50,15 @@ const Navbar = () => {
   );
 
   return (
-    <div className="@container fixed top-0 left-0 right-0 w-full drawer z-50">
+    <div className={`@container fixed ${isShrunk ? 'top-0' : ''} left-0 right-0 w-full drawer z-50`}>
       <input id="navbar-drawer" type="checkbox" checked={isOpen} onChange={() => setIsOpen(!isOpen)} className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
-        <div className="navbar bg-base-100 shadow-sm px-4">
+        <div className={`navbar bg-base-100 shadow-sm px-4 transition-all duration-300 ${isShrunk ? 'py-1' : 'py-4'}`}>
           <div className="navbar-start">
             <div className="flex items-center">
-              <img src="/logoTech.png" className="w-[30px]" alt="logo" />
-              <Link to='/' className="text-xl font-bold ml-2">TechTinker</Link>
+              <img src="/logoTech.png" className={`transition-all duration-300 ${isShrunk ? 'w-[24px]' : 'w-[30px]'}`} alt="logo" />
+              <Link to='/' className={`text-xl font-bold ml-2 transition-all duration-300 ${isShrunk ? 'text-base' : 'text-xl'}`}>TechTinker</Link>
             </div>
           </div>
 
@@ -76,7 +87,7 @@ const Navbar = () => {
             }
 
             {/* Hamburger Icon for Small Screens */}
-            <label htmlFor="navbar-drawer" onClick={()=> setIsOpen(!isOpen)} className="btn btn-ghost lg:hidden">
+            <label htmlFor="navbar-drawer" onClick={() => setIsOpen(!isOpen)} className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round"

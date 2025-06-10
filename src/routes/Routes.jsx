@@ -37,7 +37,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`),
+                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`,{
+                                            credentials: "include"
+                                        }), 
                 HydrateFallback: Spinner,
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             },

@@ -11,7 +11,6 @@ const Home = () => {
     const servicesPromise = fetch('http://localhost:3000/services').then(res => res.json());
     return (
         <div>
-            <h1>this is home</h1>
             <Banner></Banner>
             <Suspense fallback={<Spinner></Spinner>}>
                 <PopularServices servicesPromise={servicesPromise}></PopularServices>
