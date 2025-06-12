@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import { motion } from "framer-motion";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router';
 
 const Banner = () => {
-   const sliderCategories = [
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const sliderCategories = [
   {
     "id": 1,
     "image": "https://i.ibb.co/8gd67W5w/technician-wearing-white-antistatic-gloves-plaid-shirt-sitting-his-desk-using-precision-screwdriver.jpg",
@@ -58,34 +61,51 @@ const Banner = () => {
             loop={true}
             autoplay={{ delay: 6000 }}
             pagination={{ clickable: true }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
             {
-                sliderCategories.map(slider => (
-                <SwiperSlide>
-                <div
-                    className="hero h-[220px] @min-[500px]:h-[290px] @min-[650px]:h-[320px] @min-[780px]:h-[90vh] object-cover"
+              sliderCategories.map((slider, index) => (
+              <SwiperSlide key={slider.id}>
+                <div className="hero relative h-[calc(100vh-65px)] @min-[520px]:h-[calc(100vh-72px)] @min-[1024px]:h-[calc(100vh-120px)] overflow-hidden">                 
+                  {/* Zoom Animated Background */}
+                  <motion.div
+                    key={activeIndex === index ? `active-${index}` : `inactive-${index}`}
+                    initial={{ scale: 1 }}
+                    animate={{ scale: activeIndex === index ? 1.3 : 1 }}
+                    transition={{ duration: 5, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-cover bg-center z-0"
                     style={{
-                    backgroundImage: `url(${slider.image})`
+                      backgroundImage: `url(${slider.image})`
                     }}
-                >
-                    <div className="hero-overlay"></div>
-                    <div className=" text-white text-center">
-                    <div className="max-w-lg space-y-0">
-                        <h1 className="mb-2 sm:mb-4 text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl">{slider.category}</h1>
-                        <p>{slider.title}</p>
-                        
-                        <p className="text-gray-300">
-                        {slider.description}
-                        </p>
-                        <Link to={'/groups'} className="btn rounded-[2px] btn-secondary btn-outline text-white mt-9 sm:text-lg">View All Services</Link>
+                  ></motion.div>
+
+                  {/* Overlay Layer */}
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                  {/* Text Content */}
+                  <motion.div 
+                    key={activeIndex}
+                    className="relative z-20 flex items-center justify-center h-full text-white text-center px-4"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  >
+                    <div className="max-w-lg">
+                      <p className="text-4xl sm:text-5xl font-bold">{slider.title}</p>
+                      <p className="text-gray-300 sm:text-[16px] mt-3">{slider.description}</p>
+                      <Link
+                        to="/services"
+                        className="btn rounded-3xl btn-primary btn-outline hover:outline text-white mt-9 sm:text-lg"
+                      >
+                        View All Services
+                      </Link>
                     </div>
-                    </div>
-                </div>             
-            </SwiperSlide>
-                ))
+                  </motion.div>
+                </div>
+              </SwiperSlide>
+              ))
             }   
             </Swiper>
-            banner
         </div>
     );
 };

@@ -1,16 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
 import { Fade } from 'react-awesome-reveal';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
-// import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
+import Swal from 'sweetalert2';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.init';
+import { MdErrorOutline } from 'react-icons/md';
+import { VscError } from 'react-icons/vsc';
+
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-    const navigate = useNavigate();
+    const {createUser, setUser} = useContext(AuthContext);
     const [passwordEye, setPasswordEye] = useState(true);
     const [confirmPasswordEye, setConfirmPasswordEye] = useState(true);
+    const [nameError, setNameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [photoError, setPhotoError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+    const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
 
     const handleRegistration = (e) =>{
         e.preventDefault();
@@ -21,44 +32,67 @@ const Register = () => {
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
 
-        // if (name === "") {
-        //     toast.error('⚠️ Please enter your name!', { position: "top-center" });
-        //     return;
-        // }
-        // if (email === "") {
-        //     toast.error('⚠️ Please enter your email address!', { position: "top-center" });
-        //     return;
-        // }
-        // if(profileImage === ""){
-        //     toast.error('⚠️ Please enter your profile URL', { position: "top-center" });
-        //     return;
-        // }
-        // if (!/\d/.test(password)) {
-        //     toast.error('⚠️ Password must include at least one number (0-9).', { position: "top-center" });
-        //     return;
-        // }
-        // if (!/[a-z]/.test(password)) {
-        //     toast.error('⚠️ Password must include at least one lowercase letter (a-z).', { position: "top-center" });
-        //     return;
-        // }
-        // if (!/[A-Z]/.test(password)) {
-        //     toast.error('⚠️ Password must include at least one uppercase letter (A-Z).', { position: "top-center" });
-        //     return;
-        // }
-        // if (password.length < 6) {
-        //     toast.error('⚠️ Password must be at least 6 characters long.', { position: "top-center" });
-        //     return;
-        // }
-        // if (password !== confirmPassword) {
-        //     toast.error('❌ Password and Confirm Password do not match.', {
-        //         position: "top-center",
-        //     });
-        //     return;
-        // }
+
+        // reset error
+        setNameError('');
+        setEmailError('');
+        setPhotoError('');
+        setPasswordError('');
+        setConfirmPasswordError('');
+
+
+
+        if (name === "") {
+            setNameError('Please enter your name!');
+            return;
+        }
+        if (email === "") {
+            setEmailError('Please enter your email address!');
+            return;
+        }
+        if(profileImage === ""){
+            setPhotoError('Please enter your profile URL!');
+            return;
+        }
+        if (!/\d/.test(password)) {
+            setPasswordError('Password must include at least one number (0-9)!');
+            return;
+        }
+        if (!/[a-z]/.test(password)) {
+            setPasswordError('Password must include at least one lowercase letter (a-z)!')
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            setPasswordError('Password must include at least one uppercase letter (A-Z)!')
+            return;
+        }
+        if (password.length < 6) {
+            setPasswordError('Password must be at least 6 characters long!')
+            return;
+        }
+        if (password !== confirmPassword) {
+            setConfirmPasswordError('Password and Confirm Password do not match!');
+            return;
+        }
         
         
         // create user in the firebase
+        
         createUser(email, password, name, profileImage, navigate)
+    }
+
+    // login with google
+    const handleLoginGoogle = () =>{
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+              const googleUser = result.user;
+              console.log(googleUser);
+              setUser(googleUser);
+              Swal.fire('Login Successful', 'You have successfully logged in.', 'success');
+              navigate("/");
+            }).catch((error) => {
+             Swal.fire('Error', error, 'error');
+        });
     }
     return (
         <Fade direction='down' triggerOnce>
@@ -73,14 +107,17 @@ const Register = () => {
                             <div>
                                 <label htmlFor="name" className="block mb-2 text-sm">Name</label>
                                 <input type="text" name="name" id="name" placeholder="Enter your name" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <p className="text-error text-sm mt-1.5">{nameError}</p>
                             </div>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm">Email address</label>
                                 <input type="email" name="email" id="email" placeholder="Enter email address" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <p className="text-error text-sm mt-1.5">{emailError}</p>
                             </div>
                             <div>
                                 <label htmlFor="photoUrl" className="block mb-2 text-sm">Photo URL</label>
                                 <input type="text" name="photoUrl" id="photoUrl" placeholder="Enter Photo URL" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <p className="text-error text-sm mt-1.5">{photoError}</p>
                             </div>
                             <div>
                                 <div className="flex justify-between mb-2">
@@ -93,6 +130,7 @@ const Register = () => {
                                             passwordEye ? <FaEye /> : <FaEyeSlash/>
                                         }
                                     </span>
+                                    <p className="text-error text-sm mt-1.5">{passwordError}</p>
                                 </div>
                             </div>
                             <div>
@@ -106,6 +144,7 @@ const Register = () => {
                                             confirmPasswordEye ? <FaEye /> : <FaEyeSlash/>
                                         }
                                     </span>
+                                    <p className="text-error text-sm mt-1.5">{confirmPasswordError}</p>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +157,21 @@ const Register = () => {
                             </p>
                         </div>
                     </form>
+
+                    {/* or */}
+                    <div className="flex items-center w-full my-4">
+                        <hr  className="w-full" />
+                        <p className="px-3">OR</p>
+                        <hr  className="w-full" />
+                    </div>
+
+                    {/* login google */}
+                    <div className="my-6 space-y-4">
+                        <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2">
+                            <FcGoogle size={25}/>
+                            <p>Continue with Google</p>
+                        </button>
+                    </div>
                 </div>           
             </div>
         </Fade>

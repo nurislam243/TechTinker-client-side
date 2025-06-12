@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
+
+*{
+  font-family: "Roboto", sans-serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 
 @plugin "daisyui/theme" {
   name: "techTinker";
@@ -7,87 +16,89 @@
   prefersdark: false;
   color-scheme: light;
 
-  /* Base backgrounds */
-  --color-base-100: oklch(98% 0.01 280); 
-  --color-base-200: oklch(95% 0.015 280); 
-  --color-base-300: oklch(90% 0.02 280); 
-  --color-base-content: oklch(20% 0.04 280); /* dark text */
+  /* --------- Base backgrounds ---------- */
+  --color-base-100: oklch(98% 0.01 280); /* page background */
+  --color-base-200: oklch(96% 0.015 280); /* card bg */
+  --color-base-300: oklch(92% 0.02 280); /* borders */
+  --color-base-content: oklch(18% 0.04 280); /* main text */
 
-  /*  Primary: #009688 (Teal) */
-  --color-primary: oklch(65% 0.18 185); 
-  --color-primary-content: oklch(98% 0.01 185); 
+  /* --------- Primary: Deep Orange (#FF5722) ---------- */
+  --color-primary: oklch(72% 0.27 45); /* vivid orange */
+  --color-primary-content: oklch(98% 0.01 45); /* white text on orange */
 
-  /* Secondary: #FF5722 (Deep Orange) */
-  --color-secondary: oklch(72% 0.27 45); 
-  --color-secondary-content: oklch(98% 0.01 45); 
+  /* --------- Secondary: Teal (#009688) ---------- */
+  --color-secondary: oklch(65% 0.18 185);
+  --color-secondary-content: oklch(98% 0.01 185);
 
-  /* Accent color - slightly lighter teal */
+  /* --------- Accent: Lighter Teal ---------- */
   --color-accent: oklch(70% 0.21 180); 
   --color-accent-content: oklch(98% 0.01 180); 
 
-  /* Neutral colors */
-  --color-neutral: oklch(35% 0.03 250); 
+  /* --------- Neutral: Slightly cool gray ---------- */
+  --color-neutral: oklch(40% 0.03 250); 
   --color-neutral-content: oklch(96% 0.01 250); 
 
-  /* Info - blue tone */
-  --color-info: oklch(75% 0.21 220); 
-  --color-info-content: oklch(98% 0.01 220); 
+  /* --------- Info: Cool Blue ---------- */
+  --color-info: oklch(76% 0.2 230); 
+  --color-info-content: oklch(12% 0.02 230); 
 
-  /* Success - green tone */
-  --color-success: oklch(70% 0.24 140); 
-  --color-success-content: oklch(98% 0.01 140); 
+  /* --------- Success: Clean Green ---------- */
+  --color-success: oklch(68% 0.23 145); 
+  --color-success-content: oklch(98% 0.01 145); 
 
-  /* Warning - orange/yellow */
-  --color-warning: oklch(80% 0.23 85); 
-  --color-warning-content: oklch(20% 0.05 85); 
+  /* --------- Warning: Bright Yellow-Orange ---------- */
+  --color-warning: oklch(82% 0.24 80); 
+  --color-warning-content: oklch(20% 0.05 80); 
 
-  /* Error - red tone */
-  --color-error: oklch(62% 0.28 30); 
+  /* --------- Error: Strong Red ---------- */
+  --color-error: oklch(60% 0.27 30); 
   --color-error-content: oklch(98% 0.01 30); 
 }
+
 
 
 @plugin "daisyui/theme" {
   name: "dark";
 
-  /* Dark base backgrounds */
-  --color-base-100: oklch(20% 0.01 250); /* Darkest background */
-  --color-base-200: oklch(25% 0.015 250);
-  --color-base-300: oklch(30% 0.02 250);
+  /* ---------- Dark Mode Base Backgrounds ---------- */
+  --color-base-100: oklch(20% 0.01 250); /* Main background */
+  --color-base-200: oklch(25% 0.015 250); /* Card background */
+  --color-base-300: oklch(30% 0.02 250); /* Light border */
   --color-base-content: oklch(95% 0.01 250); /* Light text */
 
-  /* Primary - #009688 (Teal) */
-  --color-primary: oklch(65% 0.18 180);
-  --color-primary-content: oklch(98% 0.01 180);
+  /* ---------- Primary: Deep Orange (#FF5722) ---------- */
+  --color-primary: oklch(72% 0.27 45); /* Keep vibrant */
+  --color-primary-content: oklch(98% 0.01 45); /* Light on orange */
 
-  /* Secondary - #FF5722 (Deep Orange) */
-  --color-secondary: oklch(70% 0.25 40);
-  --color-secondary-content: oklch(98% 0.01 40);
+  /* ---------- Secondary: Teal (#009688) ---------- */
+  --color-secondary: oklch(65% 0.18 185);
+  --color-secondary-content: oklch(98% 0.01 185);
 
-  /* Accent (slightly lighter teal) */
-  --color-accent: oklch(72% 0.16 185);
-  --color-accent-content: oklch(10% 0.01 185);
+  /* ---------- Accent: Slightly brighter teal ---------- */
+  --color-accent: oklch(70% 0.20 180); 
+  --color-accent-content: oklch(15% 0.01 180); 
 
-  /* Neutral - for borders/text */
-  --color-neutral: oklch(35% 0.02 260);
-  --color-neutral-content: oklch(90% 0.01 260);
+  /* ---------- Neutral: Border/Text Support ---------- */
+  --color-neutral: oklch(35% 0.025 260); 
+  --color-neutral-content: oklch(92% 0.01 260); 
 
-  /* Info - calm blue */
-  --color-info: oklch(72% 0.22 220);
-  --color-info-content: oklch(98% 0.01 220);
+  /* ---------- Info: Soft Blue ---------- */
+  --color-info: oklch(72% 0.22 230);
+  --color-info-content: oklch(10% 0.01 230);
 
-  /* Success - green */
-  --color-success: oklch(68% 0.20 140);
-  --color-success-content: oklch(98% 0.01 140);
+  /* ---------- Success: Balanced Green ---------- */
+  --color-success: oklch(66% 0.22 145); 
+  --color-success-content: oklch(98% 0.01 145); 
 
-  /* Warning - orange/yellow */
-  --color-warning: oklch(78% 0.25 85);
-  --color-warning-content: oklch(15% 0.01 85);
+  /* ---------- Warning: Orange/Yellow Mix ---------- */
+  --color-warning: oklch(78% 0.24 85); 
+  --color-warning-content: oklch(20% 0.01 85); 
 
-  /* Error - red */
-  --color-error: oklch(62% 0.28 30);
+  /* ---------- Error: Strong Red ---------- */
+  --color-error: oklch(62% 0.28 30); 
   --color-error-content: oklch(98% 0.01 30);
 }
+
 
 /* loading spinner style */
 
@@ -122,5 +133,28 @@
           transform: rotate(360deg)
         }
       }
+
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake-hover:hover {
+  animation: shake 0.5s ease-in-out;
+}
     
 

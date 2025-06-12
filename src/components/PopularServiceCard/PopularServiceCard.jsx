@@ -4,17 +4,17 @@ import { Link } from 'react-router';
 const PopularServiceCard = ({service}) => {
     const {description, imageUrl, price, serviceArea, serviceName, serviceProvider, _id} = service;
     return (
-        <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="bg-base-200 border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <img
                 className="rounded-t-lg w-full h-48 object-cover"
                 src={imageUrl}
                 alt="Tech Device Repair"
             />
             <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-blue-600">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-secondary">
                     {serviceName}
                 </h5>
-                <p className="mb-3 font-normal text-gray-700">
+                <p className="mb-3 font-normal text-base-content">
                     {description}
                 </p>
                 <div className="flex items-center mb-4">
@@ -23,11 +23,11 @@ const PopularServiceCard = ({service}) => {
                     src={serviceProvider.image}
                     alt="Provider"
                 />
-                <span className="text-sm font-medium text-gray-900">{serviceProvider.name}</span>
+                <span className="text-sm font-bold text-base-content">{serviceProvider.name}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                <span className="text-xl font-bold text-green-600">{price}</span>
-                <Link to={`/services/${_id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                <span className="text-xl font-bold text-primary/80">{price}</span>
+                <Link to={`/services/${_id}`} className="btn btn-primary hover:outline">
                     View Details
                 </Link>
                 </div>

@@ -1,6 +1,7 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
-const MyServiceCard = ({service}) => {
+const MyServiceCard = ({service, handleDeleteService}) => {
     const { _id, description, imageUrl, price, serviceArea, serviceName } = service;
 
     const handleEdit = (e) =>{
@@ -23,6 +24,7 @@ const MyServiceCard = ({service}) => {
       })
 
     }
+
     return (
         <div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -55,7 +57,7 @@ const MyServiceCard = ({service}) => {
                     Edit
                     </button>
                     <button
-                    
+                    onClick={()=>handleDeleteService(_id)}
                     className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
                     >
                     Delete

@@ -12,7 +12,7 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
-    const {user, setUser} = useContext(AuthContext)
+    const {setUser} = useContext(AuthContext)
     const [passwordEye, setPasswordEye] = useState(true);
     const location = useLocation();
     const from = location?.state?.from;
@@ -52,24 +52,24 @@ const Login = () => {
             
         })
         .catch((error) => {
-            // console.log(JSON.stringify(error))
-            // switch (error.code) {
-            //     case 'auth/missing-email':
-            //         Swal.fire('Missing Email', 'Please enter your email address before logging in.', 'error');
-            //         break;
-            //     case 'auth/invalid-credential':
-            //         Swal.fire('Invalid Email', 'The email address is invalid. Please enter a valid email.', 'error');
-            //         break;
-            //     case 'auth/user-not-found':
-            //         Swal.fire('User Not Found', 'No account found with this email. Please check or register first.', 'error');
-            //         break;
-            //     case 'auth/wrong-password':
-            //         Swal.fire('Wrong Password', 'The password you entered is incorrect. Please try again.', 'error');
-            //         break;
-            //     default:
-            //         Swal.fire('Error', error.message, 'error');
-            //         break;
-            // }
+            console.log(JSON.stringify(error))
+            switch (error.code) {
+                case 'auth/missing-email':
+                    Swal.fire('Missing Email', 'Please enter your email address before logging in.', 'error');
+                    break;
+                case 'auth/invalid-credential':
+                    Swal.fire('Invalid Email', 'The email address is invalid. Please enter a valid email.', 'error');
+                    break;
+                case 'auth/user-not-found':
+                    Swal.fire('User Not Found', 'No account found with this email. Please check or register first.', 'error');
+                    break;
+                case 'auth/wrong-password':
+                    Swal.fire('Wrong Password', 'The password you entered is incorrect. Please try again.', 'error');
+                    break;
+                default:
+                    Swal.fire('Error', error.message, 'error');
+                    break;
+            }
         });
     }
 
@@ -86,34 +86,31 @@ const Login = () => {
           Swal.fire('Login Successful', 'You have successfully logged in.', 'success');
           navigate(from?from:"/");
         }).catch((error) => {
-            // let errorMessage = '';
+            let errorMessage = '';
 
-            // if (error.code === 'auth/wrong-password') {
-            //   errorMessage = 'Incorrect password. Please try again.';
-            //   return;
-            // } 
-            // else if (error.code === 'auth/user-not-found') {
-            //   errorMessage = 'No user found with this email.';
-            // }
-            // else if (error.code === 'auth/popup-closed-by-user') {
-            //   errorMessage = 'Popup closed before completing sign in.';
-            // } 
-            // else {
-            //   errorMessage = error.message;
-            // }
+            if (error.code === 'auth/wrong-password') {
+              errorMessage = 'Incorrect password. Please try again.';
+              return;
+            } 
+            else if (error.code === 'auth/user-not-found') {
+              errorMessage = 'No user found with this email.';
+            }
+            else if (error.code === 'auth/popup-closed-by-user') {
+              errorMessage = 'Popup closed before completing sign in.';
+            } 
+            else {
+              errorMessage = error.message;
+            }
           
-            // Swal.fire('Error', errorMessage, 'error');
+            Swal.fire('Error', errorMessage, 'error');
         });
     }
 
     return (
-        <div className="flex items-center mx-auto">
-            <div className="">
-                <Lottie className='w-full' animationData={login} loop={true}></Lottie>
-            </div>
+        <div className="">
             <Fade direction='down' triggerOnce>
                 <div>
-                    <div className="w-full max-w-md p-4 shadow-2xl mt-[27px] sm:mt-[50px] lg:mt-[80px] 2xl:mt-[100px] black-bg-dark-mode sm:p-8">
+                    <div className="w-full max-w-md p-4 shadow-2xl mt-[27px] sm:mt-[50px] lg:mt-[80px] 2xl:mt-[100px] black-bg-dark-mode sm:p-8 mx-auto">
                         <h2 className="mb-3 text-3xl font-semibold text-center text-accent">Login to your account</h2>
                         <p className="text-sm text-center text-base-content">Don't have account?
                             <Link  to={'/register'} className="focus:underline hover:underline text-blue-700 blueLight-text-dark-mode"> Registration here</Link>

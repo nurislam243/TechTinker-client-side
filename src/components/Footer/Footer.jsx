@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router';
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand Section */}
         <div>
           <div className="flex items-center space-x-3 mb-4">
             <div className="flex items-center">
-                <img src="/logoTech.png" className='w-[30px]' alt="" />
-                <span className="text-2xl font-bold text-white">TechTinker</span>
+              <img src="/logoTech.png" className={`transition-all duration-300 w-[30px]`} alt="logo" />
+              <Link to='/' className={`font-bold ml-2 transition-all text-primary duration-300 text-2xl`}>Tech<span className='text-secondary'>Tinker</span></Link>
             </div>
           </div>
           <p className="text-sm text-gray-400">
@@ -21,10 +26,10 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Product</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-cyan-400">Features</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Pricing</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Integrations</a></li>
-            <li><a href="#" className="hover:text-cyan-400">FAQs</a></li>
+            <li><a href="#" className="hover:text-primary">Features</a></li>
+            <li><a href="#" className="hover:text-primary">Pricing</a></li>
+            <li><a href="#" className="hover:text-primary">Integrations</a></li>
+            <li><a href="#" className="hover:text-primary">FAQs</a></li>
           </ul>
         </div>
 
@@ -32,27 +37,27 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Company</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-cyan-400">About Us</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Terms & Conditions</a></li>
+            <li><a href="#" className="hover:text-primary">About Us</a></li>
+            <li><a href="#" className="hover:text-primary">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-primary">Terms & Conditions</a></li>
           </ul>
         </div>
 
         {/* Social */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Connect</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-cyan-400" title="Facebook">
-              <i className="fab fa-facebook-f text-xl"></i>
+          <div className="text-neutral-content flex flex-col gap-[7px]">
+            <a href="https://www.facebook.com/nur.islam.568309/" className="hover:text-primary" target='_blank'>
+              <h4 className=' flex items-center gap-x-2'><FaFacebook /> <span className='text-sm'>Facebook</span></h4>
             </a>
-            <a href="#" className="hover:text-cyan-400" title="Twitter">
-              <i className="fab fa-twitter text-xl"></i>
+            <a href="https://x.com/MdNurIslam55434" className="hover:text-primary" target='_blank'>
+              <h4 className=' flex items-center gap-x-2'><FaTwitter /> <span className='text-sm'>Twitter</span></h4>
             </a>
-            <a href="#" className="hover:text-cyan-400" title="Instagram">
-              <i className="fab fa-instagram text-xl"></i>
+            <a href="https://github.com/nurislam243" className="hover:text-primary" target='_blank'>
+              <h4 className=' flex items-center gap-x-2'><FaGithub /> <span className='text-sm'>Github</span></h4>
             </a>
-            <a href="#" className="hover:text-cyan-400" title="LinkedIn">
-              <i className="fab fa-linkedin-in text-xl"></i>
+            <a href="https://www.linkedin.com/in/md-nur-islam-360b372a0/" className="hover:text-primary"  target='_blank'>
+              <h4 className=' flex items-center gap-x-2'><FaLinkedin /><span className='text-sm'>Linkedin</span></h4>
             </a>
           </div>
         </div>

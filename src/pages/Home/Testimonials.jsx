@@ -1,6 +1,7 @@
 import React from 'react';
+import Marquee from "react-fast-marquee";
 
-const Reviews = () => {
+const Testimonials = () => {
   const testimonials = [
   {
     id: 1,
@@ -70,31 +71,33 @@ const Reviews = () => {
 
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
-      <h2 className="text-4xl font-bold text-center mb-12">What Our Users Say</h2>
+    <section className="py-20">
+      <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-8">What Our Users Say</h2>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map(({ id, name, role, comment, image, rating }) => (
-          <div key={id} className="card bg-base-100 shadow-md hover:shadow-xl transition duration-300">
-            <div className="card-body">
-              <div className="flex items-center gap-4 mb-4">
-                <img src={image} alt={name} className="w-12 h-12 rounded-full" />
-                <div>
-                  <h3 className="font-semibold">{name}</h3>
-                  <p className="text-sm text-gray-500">{role}</p>
+      <div className="">
+        <Marquee pauseOnHover={true} className='py-4'>
+          {testimonials.map(({ id, name, role, comment, image, rating }) => (
+            <div key={id} className="card bg-base-100 max-w-[180px] @min-[360px]:max-w-[200px] @min-[1220px]:max-w-[290px] min-h-[310px] @min-[360px]:min-h-[298px] @min-[1200px]:min-h-[245px] mx-5 shadow-md hover:shadow-xl transition duration-300">
+              <div className="card-body">
+                <div className="flex items-center gap-4 mb-4">
+                  <img src={image} alt={name} className="w-12 h-12 rounded-full" />
+                  <div>
+                    <h3 className="font-semibold">{name}</h3>
+                    <p className="text-sm text-gray-500">{role}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-base-content mb-4">“{comment}”</p>
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(rating)}
+                  {'☆'.repeat(5 - rating)}
                 </div>
               </div>
-              <p className="text-sm text-gray-700 mb-4">“{comment}”</p>
-              <div className="flex text-yellow-400">
-                {'★'.repeat(rating)}
-                {'☆'.repeat(5 - rating)}
-              </div>
             </div>
-          </div>
         ))}
+        </Marquee>
       </div>
     </section>
   );
 };
 
-export default Reviews;
+export default Testimonials;
