@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
   const clientSteps = [
@@ -65,8 +66,12 @@ const HowItWorks = () => {
           <h3 className="text-2xl font-semibold mb-6 text-secondary text-center md:text-left">For Clients</h3>
           <div className="space-y-6">
             {clientSteps.map(({ id, title, description, img }) => (
-              <div
+              <motion.div
                 key={id}
+                initial={{ opacity: 0, x: -70 }}    
+                whileInView={{ opacity: 1, x: 0 }} 
+                transition={{ duration: 0.8, ease: 'easeOut' }} 
+                viewport={{ once: false, amount: 0.3 }} 
                 className="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="card-body">
@@ -78,7 +83,7 @@ const HowItWorks = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -88,8 +93,12 @@ const HowItWorks = () => {
           <h3 className="text-2xl font-semibold mb-6 text-center text-secondary md:text-left">For Providers</h3>
           <div className="space-y-6">
             {providerSteps.map(({ id, title, description, img }) => (
-              <div
+              <motion.div
                 key={id}
+                initial={{ opacity: 0, x: -70 }}    
+                whileInView={{ opacity: 1, x: 0 }} 
+                transition={{ duration: 0.8, ease: 'easeOut' }} 
+                viewport={{ once: false, amount: 0.3 }}
                 className="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="card-body">
@@ -101,7 +110,7 @@ const HowItWorks = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
