@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from 'framer-motion';
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -34,9 +35,16 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <section          
+      className="py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+    >
       {/* Left Section */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}    
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8, ease: 'easeOut' }} 
+        viewport={{ once: false, amount: 0.2 }} 
+      >
         <p className="text-sm text-primary font-medium mb-2">/ Why TechTinker?</p>
         <h2 className="text-4xl font-bold leading-tight mb-6">
           Why Choose TechTinker?
@@ -49,19 +57,23 @@ const WhyChooseUs = () => {
           <Link to={'/services'} className="btn btn-primary hover:outline">Explore Services</Link>
           <Link to={'/register'} className="btn btn-outline btn-primary hover:outline">Create an Account</Link>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Section (Grid of Reasons) */}
       <div className="grid gap-6 sm:grid-cols-2">
         {reasons.map(({ id, title, description, img }) => (
-          <div
+          <motion.div
             key={id}
+            initial={{ opacity: 0, y: 50 }}    
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, ease: 'easeOut' }} 
+            viewport={{ once: false, amount: 0.2 }} 
             className="border-l-4 border-primary pl-4 py-3"
           >
             <img className='h-[75px] w-[75px]' src={img} alt="" />
             <h3 className="font-semibold text-lg mb-1 mt-4">{title}</h3>
             <p className="text-sm text-base-content/70">{description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

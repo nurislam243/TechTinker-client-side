@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
 
 const PopularServiceCard = ({service}) => {
     const {description, imageUrl, price, serviceArea, serviceName, serviceProvider, _id} = service;
     return (
-        <div className="bg-base-200 border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <motion.div 
+            key={service.id}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.2 }}
+            className="bg-base-200 border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
             <img
                 className="rounded-t-lg w-full h-48 object-cover"
                 src={imageUrl}
@@ -32,7 +40,7 @@ const PopularServiceCard = ({service}) => {
                 </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
