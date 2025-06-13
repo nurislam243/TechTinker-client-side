@@ -148,7 +148,7 @@ const Login = () => {
 
                         {/* login with google */}
                         <div className="my-6 space-y-4">
-                            <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2">
+                            <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2 hover:outline">
                                 <FcGoogle size={25}/>
                                 <p>Login with Google</p>
                             </button>
