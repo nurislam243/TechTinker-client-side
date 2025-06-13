@@ -40,7 +40,7 @@ const BookServiceCTA = () => {
             className="@min-[490px]:max-w-[250px] @min-[768px]:max-w-[200px] @min-[970px]:max-w-[250px] @min-[1080px]:max-w-[300px] @min-[1190px]:max-w-[350px] shadow-lg"
           />
         </div>
-        <div className="-mb-[52px] border-7 border-b border-r border-accent">
+        <div className="-mb-[52px] border-7 border-b border-r border-secondary">
           <motion.img
             initial={{ opacity: 0, y: 50 }}      
             whileInView={{ opacity: 1, y: 0}}    

@@ -15,11 +15,14 @@ const AllServices = () => {
     }, [data, searchText])
 
     return (
-        <section className="max-w-3xl mx-auto px-4 py-10">
-            <h2 className="text-4xl font-bold text-center mb-10 text-purple-700">
-                All Available Services
-            </h2>
-            <div className="my-20 flex items-center justify-center">               
+        <section className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0">
+            <div className="text-center p-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary">
+                    Explore All Available Tech Services
+                </h2>
+                <p className="text-base md:text-lg mt-2 text-base-content/50 max-w-xl mx-auto">Find the perfect tech solution for your device — from repairs to upgrades, trusted by experts near you.</p>
+            </div>
+            <div className="mb-12 mt-3 flex items-center justify-center">               
                 <input 
                     type="text"
                     placeholder="Search by Service Name"
@@ -27,7 +30,7 @@ const AllServices = () => {
                     onChange={e=>setSearchText(e.target.value)}
                 />             
             </div>
-            <div className="">
+            <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-9">
                 {
                     services.map(service => <ServiceCard service={service}></ServiceCard>)
                 }

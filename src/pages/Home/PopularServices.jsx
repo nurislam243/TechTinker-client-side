@@ -21,7 +21,7 @@ const PopularServices = ({servicesPromise}) => {
             }
         </div>
         <div className="flex justify-end mt-5 mr-5">
-          <Link to={'/services'} className='btn btn-primary hover:outline'>Show All <FaArrowRight /></Link>
+          <Link to={'/services'} className='btn btn-secondary hover:outline'>Show All <FaArrowRight /></Link>
         </div>
     </div>
   );

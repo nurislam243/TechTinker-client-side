@@ -30,9 +30,9 @@
   --color-secondary: oklch(65% 0.18 185);
   --color-secondary-content: oklch(98% 0.01 185);
 
-  /* --------- Accent: Lighter Teal ---------- */
-  --color-accent: oklch(70% 0.21 180); 
-  --color-accent-content: oklch(98% 0.01 180); 
+  /* --------- Accent:  Soft Indigo ---------- */
+  --color-accent: oklch(68% 0.22 282); 
+  --color-accent-content: oklch(99% 0 0); 
 
   /* --------- Neutral: Slightly cool gray ---------- */
   --color-neutral: oklch(40% 0.03 250); 
@@ -74,9 +74,9 @@
   --color-secondary: oklch(65% 0.18 185);
   --color-secondary-content: oklch(98% 0.01 185);
 
-  /* ---------- Accent: Slightly brighter teal ---------- */
-  --color-accent: oklch(70% 0.20 180); 
-  --color-accent-content: oklch(15% 0.01 180); 
+  /* ---------- Accent:  Soft Indigo ---------- */
+  --color-accent: oklch(73% 0.24 282); 
+  --color-accent-content: oklch(99% 0 0); 
 
   /* ---------- Neutral: Border/Text Support ---------- */
   --color-neutral: oklch(35% 0.025 260); 
