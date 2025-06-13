@@ -104,7 +104,7 @@ const ServiceDetails = () => {
                 className="textarea textarea-bordered w-full"
               ></textarea>
 
-              <input type="text" name="price" defaultValue={`$${price}`} className="input input-bordered w-full" readOnly />
+              <input type="text" name="price" defaultValue={`৳ ${price}`} className="input input-bordered w-full" readOnly />
             </div>
 
             <div className="modal-action">

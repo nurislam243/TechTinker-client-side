@@ -4,17 +4,7 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const ToDoRow = ({ toDo }) => {
   const { user } = useContext(AuthContext);
-  const {
-    _id,
-    serviceName,
-    imageUrl,
-    userEmail,
-    userName,
-    serviceDate,
-    instruction,
-    price,
-    serviceStatus
-  } = toDo;
+  const { _id, serviceName, imageUrl, userEmail, userName, serviceDate, instruction, price, serviceStatus } = toDo;
   const [status, setStatus] = useState(serviceStatus);
 
   const handleStatusChange = (value) =>{
@@ -27,7 +17,6 @@ const ToDoRow = ({ toDo }) => {
   })
     .then(res => {
       console.log(res.data)
-      // setStatus(value)
       setStatus(value)
     })
     .catch(err => console.error(err));
@@ -41,27 +30,25 @@ const ToDoRow = ({ toDo }) => {
   };
 
   return (
-    <tr>
+    <tr className='hover:bg-base-200 hover:border-t hover:border-b hover:border-gray-200'>
       <td>
         <div className="flex items-center gap-3">
-          <div className="avatar">
-            <div className="mask mask-squircle w-12 h-12">
-              <img src={imageUrl} alt={serviceName} />
-            </div>
-          </div>
-          <div>
-            <div className="font-semibold">{serviceName}</div>
-          </div>
+          <img
+            src={imageUrl}
+            alt={serviceName}
+            className="w-12 h-12 object-cover rounded"
+          />
+          <span className='min-w-[142px] mr-4'>{serviceName}</span>
         </div>
       </td>
-      <td className="font-medium">{userName}</td>
-      <td className="text-sm text-gray-500">{userEmail}</td>
+      <td>{userName}</td>
+      <td>{userEmail}</td>
       <td>{serviceDate}</td>
-      <td>
-        <span className="italic text-gray-600">{instruction || "N/A"}</span>
+      <td className='min-w-[330px]'>
+        <span>{instruction || "N/A"}</span>
       </td>
       <td>
-        <span className="text-purple-700 font-semibold">{price}</span>
+        <span>{price}</span>
       </td>
       <td>
         <span className={`badge ${statusColor[status]} capitalize`}>
