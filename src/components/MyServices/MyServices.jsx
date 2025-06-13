@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import MyServiceCard from '../MyServiceCard/MyServiceCard';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import Empty from '../Empty/Empty';
 
 const MyServices = ({manageServicesPromise}) => {
     const initialServices = use(manageServicesPromise);
@@ -41,13 +42,20 @@ const MyServices = ({manageServicesPromise}) => {
       });
     }
 
-    return (
-        <div>
-             {services.length === 0 ? (
-            <p className="text-center text-gray-500">You haven't added any services yet.</p>
-        ) : services.map(service => <MyServiceCard service={service} handleDeleteService={handleDeleteService} ></MyServiceCard>)
+    // empty Service
+    if(services.length === 0){
+      return <Empty 
+          message={'You haven’t added any services yet.'} 
+          link={'/add-service'} 
+          btnText={'Add Service'}
+        ></Empty>
+    }
 
-}
+    return (
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px] my-12'>
+            {
+              services.map(service => <MyServiceCard service={service} handleDeleteService={handleDeleteService} ></MyServiceCard>)
+            }
         </div>
     );
 };

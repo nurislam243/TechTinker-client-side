@@ -87,6 +87,7 @@ const AddService = () => {
         icon: 'error',
         confirmButtonText: 'Try Again',
       });
+      console.error('Add Service Error:', error);
     })
   }
 

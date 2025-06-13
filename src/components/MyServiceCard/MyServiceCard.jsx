@@ -27,24 +27,24 @@ const MyServiceCard = ({service, handleDeleteService}) => {
 
     return (
         <div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="">
                 <div
-                className="border rounded-xl shadow-md p-5 bg-white"
+                className="border border-gray-200/60 rounded-sm shadow-md p-5 bg-base-200/50"
                 >
                 <img
                     src={imageUrl}
                     alt={serviceName}
                     className="w-full h-48 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-xl font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold text-base-content">
                     {service.serviceName}
                 </h3>
-                <p className="text-gray-600 mt-2">
+                <p className="text-base-content/75 mt-2">
                     {description.slice(0, 100)}...
                 </p>
                 <div className="flex justify-between items-center mt-4">
-                    <span className="text-green-600 font-bold">${price}</span>
-                    <span className="text-indigo-600 font-medium">
+                    <span className="text-green-600 font-bold">৳{price}</span>
+                    <span className="text-accent font-medium">
                     {serviceArea}
                     </span>
                 </div>
@@ -52,13 +52,13 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 <div className="flex justify-end gap-4 mt-5">
                     <button
                     onClick={()=>document.getElementById(`edit-modal-${_id}`).showModal()}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                    className="btn btn-secondary hover:outline"
                     >
                     Edit
                     </button>
                     <button
                     onClick={()=>handleDeleteService(_id)}
-                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+                    className="btn btn-error hover:outline"
                     >
                     Delete
                     </button>
@@ -68,8 +68,8 @@ const MyServiceCard = ({service, handleDeleteService}) => {
 
         {/* edit modal */}
         <dialog id={`edit-modal-${_id}`} className="modal">
-        <div className="modal-box max-w-xl">
-          <h2 className="text-2xl font-bold mb-4 text-purple-700">Edit Service</h2>
+        <div className="modal-box max-w-xl border border-gray-200/40">
+          <h2 className="text-2xl font-bold mb-4 text-secondary">Edit Service</h2>
           <form onSubmit={handleEdit} className="space-y-4">
             <div>
               <label className="block font-medium">Service Image Url</label>
@@ -77,7 +77,7 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 type="text"
                 name="imageUrl"
                 defaultValue={imageUrl}
-                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
               />
             </div>
             <div>
@@ -86,7 +86,7 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 type="text"
                 name="serviceName"
                 defaultValue={serviceName}
-                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
               />
             </div>
 
@@ -96,7 +96,7 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 type="number"
                 name="price"
                 defaultValue={price}
-                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
               />
             </div>
 
@@ -106,7 +106,7 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 type="text"
                 name="serviceArea"
                 defaultValue={serviceArea}
-                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
               />
             </div>
 
@@ -116,21 +116,21 @@ const MyServiceCard = ({service, handleDeleteService}) => {
                 name="description"
                 rows="3"
                 defaultValue={description}
-                className="w-full border px-4 py-2 rounded-md focus:outline-purple-500"
+                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
               />
             </div>
 
             <div className="modal-action">
               <button
                 type="button"
-                className="btn"
+                className="btn hover:outline"
                 onClick={() => document.getElementById(`edit-modal-${_id}`).close()}
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="btn bg-purple-700 text-white hover:bg-purple-800"
+                className="btn btn-primary hover:outline"
               >
                 Save Changes
               </button>

@@ -8,7 +8,7 @@ import TopBar from '../components/TopBar/TopBar';
 const MainLayout = () => {
     const { theme } = useContext(AuthContext);
     return (
-        <div className='@container' data-theme={theme ? 'techTinker' : 'dark'}>
+        <div className='@container bg-base-100' data-theme={theme ? 'techTinker' : 'dark'}>
             <TopBar></TopBar>
             <Navbar></Navbar>
             <div className="min-h-[85vh] mt-[65px] @min-[520px]:mt-[72px] @min-[1024px]:mt-[84px]">
