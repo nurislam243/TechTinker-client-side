@@ -9,6 +9,7 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 import { MdErrorOutline } from 'react-icons/md';
 import { VscError } from 'react-icons/vsc';
+import { Helmet } from 'react-helmet-async';
 
 
 const Register = () => {
@@ -96,6 +97,10 @@ const Register = () => {
     }
     return (
         <Fade direction='down' triggerOnce>
+            <Helmet>
+                <title>Register | TechTinker</title>
+            </Helmet>
+
             <div className='pt-4 pb-12 px-2 @min-[476px]:px-0'>
                 <div className="w-full max-w-md p-4 shadow-2xl mx-auto black-bg-dark-mode sm:p-8 border border-gray-200 rounded">
                     <div className="mb-8 text-center">

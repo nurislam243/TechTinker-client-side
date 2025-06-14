@@ -6,11 +6,15 @@ import HowItWorks from './HowItWorks';
 import BookServiceCTA from './BookServiceCTA';
 import Spinner from '../../components/Ui/Spinner';
 import Testimonials from './Testimonials';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const servicesPromise = fetch('http://localhost:3000/services').then(res => res.json());
     return (
         <div>
+            <Helmet>
+                <title>Home | TechTinker</title>
+            </Helmet>
             <Banner></Banner>
             <div className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0">
                 <Suspense fallback={<Spinner></Spinner>}>

@@ -9,6 +9,7 @@ import { Fade } from 'react-awesome-reveal';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { auth } from '../../firebase/firebase.init';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -108,6 +109,10 @@ const Login = () => {
 
     return (
         <div className="pt-4 @min-[500px]:pt-7 px-2 @min-[476px]:px-0">
+            <Helmet>
+                <title>Login | TechTinker</title>
+            </Helmet>
+
             <Fade direction='down' triggerOnce>
                 <div>
                     <div className="w-full max-w-md p-4 border border-gray-200 rounded shadow-2xl black-bg-dark-mode sm:p-8 mx-auto">

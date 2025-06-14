@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router";
 import ServiceCard from "../../components/ServiceCard/ServiceCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllServices = () => {
     const data = useLoaderData();
@@ -16,6 +17,9 @@ const AllServices = () => {
 
     return (
         <section className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0">
+            <Helmet>
+                <title>All Services | TechTinker</title>
+            </Helmet>
             <div className="text-center p-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-primary">
                     Explore All Available Tech Services

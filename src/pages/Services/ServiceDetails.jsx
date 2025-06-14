@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Reviews from "../../components/Reviews/Reviews";
+import { Helmet } from "react-helmet-async";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
@@ -43,6 +44,11 @@ const ServiceDetails = () => {
 
   return (
     <section className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 pt-3 md:pt-5 pb-24">
+
+      <Helmet>
+        <title>{serviceName} | TechTinker</title>
+      </Helmet>
+
       <div className="bg-base-200/70 shadow-sm p-3 @min-[450px]:p-6 rounded">
         <h2 className="text-3xl font-bold mb-6 text-base-content/90 text-center">
           {serviceName}

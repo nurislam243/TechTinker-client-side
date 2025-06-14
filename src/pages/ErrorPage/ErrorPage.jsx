@@ -4,15 +4,16 @@ import error404 from "../../assets/animation/error404.json"
 import error from "../../assets/animation/error.json";
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 const ErrorPage = () => {
     const {theme} = useContext(AuthContext);
     return (
         <div className="@container p-3" data-theme={theme ? 'techTinker' : 'dark'}>
-            {/* <Helmet>
-                <title>Not Found | HobbEx</title>
-            </Helmet> */}
+            <Helmet>
+            <title>Page Not Found | TechTinker</title>
+            </Helmet>
+
             <div className="flex justify-center items-center">
                 <div className="px-2 mt-6">
                     <div className="flex mx-auto justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]">
