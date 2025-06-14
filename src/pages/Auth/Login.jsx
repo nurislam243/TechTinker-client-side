@@ -107,11 +107,11 @@ const Login = () => {
     }
 
     return (
-        <div className="">
+        <div className="pt-4 @min-[500px]:pt-7 px-2 @min-[476px]:px-0">
             <Fade direction='down' triggerOnce>
                 <div>
-                    <div className="w-full max-w-md p-4 shadow-2xl mt-[27px] sm:mt-[50px] lg:mt-[80px] 2xl:mt-[100px] black-bg-dark-mode sm:p-8 mx-auto">
-                        <h2 className="mb-3 text-3xl font-semibold text-center text-accent">Login to your account</h2>
+                    <div className="w-full max-w-md p-4 border border-gray-200 rounded shadow-2xl black-bg-dark-mode sm:p-8 mx-auto">
+                        <h2 className="mb-3 text-3xl font-semibold text-center text-secondary">Login to your account</h2>
                         <p className="text-sm text-center text-base-content">Don't have account?
                             <Link  to={'/register'} className="focus:underline hover:underline text-blue-700 blueLight-text-dark-mode"> Registration here</Link>
                         </p>
@@ -119,7 +119,7 @@ const Login = () => {
                             <div className="space-y-4">
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="block text-sm">Email address</label>
-                                    <input type="email" name="email" id="email" placeholder="Enter email address" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                    <input type="email" name="email" id="email" placeholder="Enter email address" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex justify-between">
@@ -127,7 +127,7 @@ const Login = () => {
                                         <Link rel="noopener noreferrer" className="text-xs hover:underline">Forgot password?</Link>
                                     </div>
                                     <div className="relative">
-                                        <input type={passwordEye ? "password" : "text"} name="password" id="password" placeholder="Enter Password" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                        <input type={passwordEye ? "password" : "text"} name="password" id="password" placeholder="Enter Password" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                         <span onClick={()=>setPasswordEye(!passwordEye)} className="absolute text-2xl mt-3 -ml-10">
                                             {
                                                 passwordEye ? <FaEye /> : <FaEyeSlash/>
@@ -148,7 +148,7 @@ const Login = () => {
 
                         {/* login with google */}
                         <div className="my-6 space-y-4">
-                            <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2 hover:outline">
+                            <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2 hover:bg-base-300">
                                 <FcGoogle size={25}/>
                                 <p>Login with Google</p>
                             </button>

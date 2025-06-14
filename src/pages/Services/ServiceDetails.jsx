@@ -121,7 +121,7 @@ const ServiceDetails = () => {
 
         </div>
       </dialog>
-      <Reviews></Reviews>
+      <Reviews id={_id}></Reviews>
     </section>
   );
 };

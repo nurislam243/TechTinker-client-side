@@ -96,27 +96,27 @@ const Register = () => {
     }
     return (
         <Fade direction='down' triggerOnce>
-            <div>
-                <div className="w-full max-w-md p-4 shadow-2xl mt-[20px] sm:mt-[40px] mx-auto black-bg-dark-mode sm:p-8">
+            <div className='pt-4 pb-12 px-2 @min-[476px]:px-0'>
+                <div className="w-full max-w-md p-4 shadow-2xl mx-auto black-bg-dark-mode sm:p-8 border border-gray-200 rounded">
                     <div className="mb-8 text-center">
-                        <h1 className="my-3 text-4xl text-accent font-bold">Register</h1>
+                        <h1 className="my-3 text-4xl text-secondary font-bold">Register</h1>
                         <p className="text-sm">Please Registration your account</p>
                     </div>
                     <form onSubmit={handleRegistration} className="space-y-8 mt-6">
                         <div className="space-y-4">
                             <div>
                                 <label htmlFor="name" className="block mb-2 text-sm">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Enter your name" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <input type="text" name="name" id="name" placeholder="Enter your name" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                 <p className="text-error text-sm mt-1.5">{nameError}</p>
                             </div>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-                                <input type="email" name="email" id="email" placeholder="Enter email address" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <input type="email" name="email" id="email" placeholder="Enter email address" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                 <p className="text-error text-sm mt-1.5">{emailError}</p>
                             </div>
                             <div>
                                 <label htmlFor="photoUrl" className="block mb-2 text-sm">Photo URL</label>
-                                <input type="text" name="photoUrl" id="photoUrl" placeholder="Enter Photo URL" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                <input type="text" name="photoUrl" id="photoUrl" placeholder="Enter Photo URL" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                 <p className="text-error text-sm mt-1.5">{photoError}</p>
                             </div>
                             <div>
@@ -124,7 +124,7 @@ const Register = () => {
                                     <label htmlFor="password" className="text-sm">Password</label>
                                 </div>
                                 <div className="relative">
-                                    <input type={passwordEye ? "password" : "text"} name="password" id="password" placeholder="Enter password" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                    <input type={passwordEye ? "password" : "text"} name="password" id="password" placeholder="Enter password" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                     <span onClick={()=>setPasswordEye(!passwordEye)} className="absolute text-2xl mt-3 -ml-10">
                                         {
                                             passwordEye ? <FaEye /> : <FaEyeSlash/>
@@ -138,7 +138,7 @@ const Register = () => {
                                     <label htmlFor="confirmPassword" className="text-sm">Confirm Password</label>
                                 </div>
                                 <div className="relative">
-                                    <input type={confirmPasswordEye ? "password" : "text"} name="confirmPassword" id="confirmPassword" placeholder="Enter confirm password" className="bg-base-200/70 mt-1 focus:outline focus:outline-base-content/25 px-3.5 py-[9px] rounded-[2px] w-full input-bg-dark-mode" />
+                                    <input type={confirmPasswordEye ? "password" : "text"} name="confirmPassword" id="confirmPassword" placeholder="Enter confirm password" className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" />
                                     <span onClick={()=>setConfirmPasswordEye(!confirmPasswordEye)} className="absolute text-2xl mt-3 -ml-10">
                                         {
                                             confirmPasswordEye ? <FaEye /> : <FaEyeSlash/>
@@ -167,7 +167,7 @@ const Register = () => {
 
                     {/* login google */}
                     <div className="my-6 space-y-4">
-                        <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2">
+                        <button aria-label="Login with Google" onClick={handleLoginGoogle} type="button" className="flex items-center justify-center mt-1 outline cursor-pointer outline-base-content/50 focus:outline-base-content px-3.5 py-[9px] rounded-[2px] w-full text-lg gap-2 hover:bg-base-300">
                             <FcGoogle size={25}/>
                             <p>Continue with Google</p>
                         </button>
