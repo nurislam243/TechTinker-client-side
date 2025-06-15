@@ -56,6 +56,7 @@ const Navbar = () => {
                 Swal.fire('Error', error.message, 'error');
                 });
             }
+            setLoading(false);
         });
     };
 

@@ -16,7 +16,12 @@ const MyServiceCard = ({service, handleDeleteService}) => {
       .then(res => {
         if(res.data.modifiedCount){
           document.getElementById(`edit-modal-${_id}`).close();
-          alert('updated successfully')
+          Swal.fire({
+            icon: 'success',
+            title: 'Service Updated!',
+            text: 'The service information has been successfully updated.',
+            confirmButtonText: 'OK'
+          });
         }
       })
       .catch(error =>{

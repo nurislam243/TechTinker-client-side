@@ -75,8 +75,6 @@ const Login = () => {
     }
 
 
-
-
     // login with google
     const handleLoginGoogle = () =>{
         signInWithPopup(auth, googleProvider)

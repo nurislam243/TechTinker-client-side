@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 
 const MyBookingRow = ({booking}) => {
   const { serviceName, imageUrl, providerEmail, providerName, serviceDate, price, serviceStatus} = booking;
@@ -11,10 +12,10 @@ const MyBookingRow = ({booking}) => {
               alt={serviceName}
               className="w-12 h-12 object-cover rounded"
             />
-            <span className='min-w-[142px]'>{serviceName}</span>
+            <span className='min-w-[142px] mr-4 lg:mr-0'>{serviceName}</span>
           </div>
         </td>
-        <td>{serviceDate}</td>
+        <td><span>{format(serviceDate, 'd MMMM yyyy')}</span></td>
         <td>{providerName}</td>
         <td>{providerEmail}</td>
         <td>{price}</td>

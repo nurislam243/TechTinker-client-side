@@ -23,7 +23,7 @@ const MyBookings = ({myBookingsPromise}) => {
                     <thead>
                         <tr>
                             <th>Service</th>
-                            <th>Date</th>
+                            <th className='min-w-[172px]'>Date</th>
                             <th>Provider Name</th>
                             <th>Provider Email</th>
                             <th>Price</th>

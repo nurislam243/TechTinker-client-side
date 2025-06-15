@@ -91,28 +91,66 @@ const ServiceDetails = () => {
           <h3 className="font-bold text-xl mb-4 text-secondary">Book Service</h3>
 
           <form onSubmit={handlePurchase}>
-            <div className="space-y-3">
-              <input type="text" name="serviceId" defaultValue={_id} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="text" name="serviceName" defaultValue={serviceName} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="text" name="imageUrl" defaultValue={imageUrl} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="text" name="providerEmail" defaultValue={serviceProvider.email} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="text" name="providerName" defaultValue={serviceProvider.name} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="email" name="userEmail" defaultValue={user.email} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              <input type="text" name="userName" defaultValue={user.displayName} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
-              
-              <input
-                type="date"
-                name="serviceDate"
-                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
-                required
-              />
-              <textarea
-                name="instruction"
-                placeholder="Special Instruction"
-                className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
-              ></textarea>
+            <div className="space-y-3 max-h-[78vh] overflow-y-auto px-2">
+              <div className="">
+                <label htmlFor="serviceId" className="font-medium">Service ID</label>
+                <input id="serviceId" type="text" name="serviceId" defaultValue={_id} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
 
-              <input type="text" name="price" defaultValue={`৳ ${price}`} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              <div className="">
+                <label htmlFor="serviceName" className='font-medium'>Service Name</label>
+                <input id="serviceName" type="text" name="serviceName" defaultValue={serviceName} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="imageUrl" className='font-medium'>Service Image URL</label>
+                <input id="imageUrl" type="text" name="imageUrl" defaultValue={imageUrl} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="providerEmail" className='font-medium'>Provider Email</label>
+                <input id="providerEmail" type="text" name="providerEmail" defaultValue={serviceProvider.email} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="providerName" className='font-medium'>Provider Name</label>
+                <input id="providerName" type="text" name="providerName" defaultValue={serviceProvider.name} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="userEmail" className='font-medium'>Your Email</label>
+                <input id="userEmail" type="email" name="userEmail" defaultValue={user.email} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="userName" className='font-medium'>Your Name</label>
+                <input id="userName" type="text" name="userName" defaultValue={user.displayName} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              <div className="">
+                <label htmlFor="price" className='font-medium'>Service Price</label>
+                <input id="price" type="text" name="price" defaultValue={`৳ ${price}`} className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full" readOnly />
+              </div>
+              
+              <div className="">
+                <label htmlFor="date" className='font-medium'>
+                  Preferred Service Date <span className="text-error">*</span>
+                </label>
+                <input
+                  id="date"
+                  type="date"
+                  name="serviceDate"
+                  className="bg-base-200/70 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
+                  required
+                />
+              </div>
+
+              <div className="">
+                <label htmlFor="instruction" className='font-medium'>
+                  Special Instruction <span className="text-error">*</span>
+                </label>
+                <textarea
+                  id="instruction"
+                  name="instruction"
+                  placeholder="Special Instruction"
+                  className="bg-base-200/70 mt-1 outline outline-base-content/10 focus:outline-base-content/35 px-3.5 py-[9px] rounded-[2px] w-full"
+                  required
+                ></textarea>
+              </div>
             </div>
 
             <div className="modal-action">

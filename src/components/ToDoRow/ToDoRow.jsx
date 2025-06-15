@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
+import { format } from 'date-fns';
 
 const ToDoRow = ({ toDo }) => {
   const { user } = useContext(AuthContext);
@@ -43,8 +44,8 @@ const ToDoRow = ({ toDo }) => {
       </td>
       <td>{userName}</td>
       <td>{userEmail}</td>
-      <td>{serviceDate}</td>
-      <td className='min-w-[330px]'>
+      <td>{format(serviceDate, 'd MMMM yyyy')}</td>
+      <td className={instruction.length < 40 ? "": "min-w-[330px]"}>
         <span>{instruction || "N/A"}</span>
       </td>
       <td>

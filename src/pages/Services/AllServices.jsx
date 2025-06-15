@@ -16,7 +16,7 @@ const AllServices = () => {
     }, [data, searchText])
 
     return (
-        <section className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0">
+        <section className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 pb-12">
             <Helmet>
                 <title>All Services | TechTinker</title>
             </Helmet>
@@ -45,3 +45,5 @@ const AllServices = () => {
 };
 
 export default AllServices;
+
+

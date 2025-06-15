@@ -23,7 +23,7 @@ const PopularServiceCard = ({service}) => {
                     {serviceName}
                 </h5>
                 <p className="mb-3 font-normal text-base-content">
-                    {description}
+                        {description.length <= 100 ? description : `${description.slice(0,100)}...` }
                 </p>
                 <div className="flex items-center mb-4">
                 <img
@@ -34,7 +34,7 @@ const PopularServiceCard = ({service}) => {
                 <span className="text-sm font-bold text-base-content">{serviceProvider.name}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                <span className="text-xl font-bold text-primary/80">{price}</span>
+                <span className="text-xl font-bold text-primary/80">৳ {price}</span>
                 <Link to={`/services/${_id}`} className="btn btn-primary hover:outline">
                     View Details
                 </Link>

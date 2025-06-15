@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { filterReviews } from '../../utils/utils';
 import Lottie from 'lottie-react';
 import empty from '../../assets/animation/empty.json'
+import { format } from 'date-fns';
 
 const Reviews = ({id}) => {
   const [rating, setRating] = useState(0);
@@ -19,7 +20,9 @@ const Reviews = ({id}) => {
   const averageRating = reviews.length > 0  ? (totalRating / reviews.length).toFixed(1) : "0.0"
 
   useEffect(() => {
-    axios.get('http://localhost:3000/reviews')
+    axios.get('http://localhost:3000/reviews', {
+       withCredentials: true
+    })
       .then(res =>{
         setAllReviews(res.data);
         setLoading(false);
@@ -129,7 +132,7 @@ const Reviews = ({id}) => {
                   <span className='text-base-content/60'> by  </span> 
                   <span className='text-secondary'>{clientName}</span>
                   <span className='text-base-content/60'> on </span>
-                  <span className='text-base-content/80'>{date}</span>
+                  <span className='text-base-content/80'>{format(date, 'd MMMM yyyy')}</span>
                 </p>
                 <p>{reviewText}</p>
               </div>
@@ -170,3 +173,5 @@ const Reviews = ({id}) => {
 };
 
 export default Reviews;
+
+
