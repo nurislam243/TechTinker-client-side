@@ -6,9 +6,9 @@
 
 ## 🌐 Live Website
 
-🔗 **Live Client**: [https://your-live-site-url.netlify.app](https://your-live-site-url.netlify.app)
+🔗 **Live Site Link**: [https://techtinker2.web.app/](https://techtinker2.web.app/)
 
-🔗 **Server Repository**: [https://github.com/your-server-repo-link](https://github.com/your-server-repo-link)
+🔗 **Server Repository**: [https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-nurislam243](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-nurislam243)
 
 ---
 
@@ -101,7 +101,7 @@ The application uses `react-router-dom` for client-side routing with nested rout
 
 - **Node.js**
 - **Express.js**
-- **MongoDB** (with Mongoose)
+- **MongoDB**
 - **JWT (jsonwebtoken)**
 - **dotenv**
 - **CORS**

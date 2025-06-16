@@ -22,22 +22,24 @@ const ServiceDetails = () => {
     serviceStatus: 'pending'
   }
 
-  axios.post('http://localhost:3000/bookings', bookingInfo)
-            .then(res => {
-                console.log(res.data)
-                if(res.data.insertedId){
-                  document.getElementById("booking_modal").close()
-                  Swal.fire({
-                      icon: "success",
-                      title: "Your services has been purchase successfully",
-                      showConfirmButton: false,
-                      timer: 1500
-                    });
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
+  axios.post('https://techtinker-server.vercel.app/bookings', bookingInfo, {
+    withCredentials: true
+  })
+    .then(res => {
+        console.log(res.data)
+        if(res.data.insertedId){
+          document.getElementById("booking_modal").close()
+          Swal.fire({
+              icon: "success",
+              title: "Your services has been purchase successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+        }
+    })
+    .catch(error => {
+        console.log(error)
+    })
 }
 
 

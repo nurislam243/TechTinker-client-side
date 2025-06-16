@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const MyServiceCard = ({service, handleDeleteService}) => {
+const MyServiceCard = ({service, handleDeleteService, handleUpdateService}) => {
     const { _id, description, imageUrl, price, serviceArea, serviceName } = service;
 
     const handleEdit = (e) =>{
@@ -12,7 +12,9 @@ const MyServiceCard = ({service, handleDeleteService}) => {
       
 
       // send updated data to db
-      axios.put(`http://localhost:3000/services/${_id}`, updatedService)
+      axios.put(`https://techtinker-server.vercel.app/services/${_id}`, updatedService, {
+        withCredentials: true
+      } )
       .then(res => {
         if(res.data.modifiedCount){
           document.getElementById(`edit-modal-${_id}`).close();
@@ -22,6 +24,9 @@ const MyServiceCard = ({service, handleDeleteService}) => {
             text: 'The service information has been successfully updated.',
             confirmButtonText: 'OK'
           });
+
+          handleUpdateService({ ...updatedService, _id });
+          
         }
       })
       .catch(error =>{

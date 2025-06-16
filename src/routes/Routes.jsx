@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                loader:  () => fetch('http://localhost:3000/services'),
+                loader:  () => fetch('https://techtinker-server.vercel.app/services'),
                 HydrateFallback: Spinner,
                 Component: AllServices
             },
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`,{
+                loader: ({params}) => fetch(`https://techtinker-server.vercel.app/services/${params.id}`,{
                                             credentials: "include"
                                         }), 
                 HydrateFallback: Spinner,

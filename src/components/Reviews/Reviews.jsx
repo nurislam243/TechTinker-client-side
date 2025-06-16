@@ -20,7 +20,7 @@ const Reviews = ({id}) => {
   const averageRating = reviews.length > 0  ? (totalRating / reviews.length).toFixed(1) : "0.0"
 
   useEffect(() => {
-    axios.get('http://localhost:3000/reviews', {
+    axios.get('https://techtinker-server.vercel.app/reviews', {
        withCredentials: true
     })
       .then(res =>{
@@ -62,10 +62,11 @@ const Reviews = ({id}) => {
     }
 
     // send review info to DB
-    axios.post('http://localhost:3000/reviews', reviewInfo,  {
+    axios.post('https://techtinker-server.vercel.app/reviews', reviewInfo,  {
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      withCredentials: true
     })
     .then(res => {
       if(res.data.insertedId){

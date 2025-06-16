@@ -7,6 +7,7 @@ import Empty from '../Empty/Empty';
 const MyServices = ({manageServicesPromise}) => {
     const initialServices = use(manageServicesPromise);
     const [services, setServices] = useState(initialServices);
+
     // handle Delete Service
     const handleDeleteService = (id) => {
       Swal.fire({
@@ -20,7 +21,9 @@ const MyServices = ({manageServicesPromise}) => {
       }).then((result) => {
       if (result.isConfirmed) {
         // send delete request to db
-            axios.delete(`http://localhost:3000/services/${id}`)
+            axios.delete(`https://techtinker-server.vercel.app/services/${id}`,{
+              withCredentials: true
+            })
             .then(response => {
                  if(response.data.deletedCount){
                     Swal.fire({
@@ -42,6 +45,17 @@ const MyServices = ({manageServicesPromise}) => {
       });
     }
 
+
+    // update service in client side/browser
+    const handleUpdateService = (updatedService) => {
+      setServices(prevServices =>
+        prevServices.map(service =>
+          service._id === updatedService._id ? updatedService : service
+        )
+      );
+    };
+
+
     // empty Service
     if(services.length === 0){
       return <Empty 
@@ -54,7 +68,10 @@ const MyServices = ({manageServicesPromise}) => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px] my-12'>
             {
-              services.map(service => <MyServiceCard service={service} handleDeleteService={handleDeleteService} ></MyServiceCard>)
+              services.map(service => <MyServiceCard 
+                service={service} 
+                handleDeleteService={handleDeleteService} 
+                handleUpdateService={handleUpdateService} ></MyServiceCard>)
             }
         </div>
     );

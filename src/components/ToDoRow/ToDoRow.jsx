@@ -9,7 +9,7 @@ const ToDoRow = ({ toDo }) => {
   const [status, setStatus] = useState(serviceStatus);
 
   const handleStatusChange = (value) =>{
-    axios.patch(`http://localhost:3000/bookings/${_id}`, { 
+    axios.patch(`https://techtinker-server.vercel.app/bookings/${_id}`, { 
       updatedStatus: value,
       email: user.email
     },

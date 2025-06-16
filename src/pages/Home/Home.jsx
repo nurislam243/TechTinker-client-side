@@ -9,7 +9,7 @@ import Testimonials from './Testimonials';
 import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
-    const servicesPromise = fetch('http://localhost:3000/services').then(res => res.json());
+    const servicesPromise = fetch('https://techtinker-server.vercel.app/services').then(res => res.json());
     return (
         <div>
             <Helmet>

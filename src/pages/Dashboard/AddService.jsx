@@ -63,7 +63,7 @@ const AddService = () => {
     }
 
     // send service info in mongodb
-    axios.post('http://localhost:3000/services', newService, {
+    axios.post('https://techtinker-server.vercel.app/services', newService, {
       headers: {
         'Content-Type': 'application/json'
       },
