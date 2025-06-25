@@ -3,6 +3,8 @@
 **TechTinker** is a full-featured, responsive service-sharing web application where users can offer and book various tech device-related services. The platform focuses on smooth user experience, secure authentication, and seamless service interactions with modern UI/UX design.
 
 ---
+## Home Page-
+![TechTinker Home Page](src/assets/Screenshot%20(117).png)
 
 ## 🌐 Live Website
 
@@ -105,5 +107,39 @@ The application uses `react-router-dom` for client-side routing with nested rout
 - **JWT (jsonwebtoken)**
 - **dotenv**
 - **CORS**
+
+
+## ⚙️ Installation & How to Run Locally
+
+### 🔧 Prerequisites
+- Node.js (v16 or above) installed  
+- npm (comes with Node.js) or yarn installed  
+- Git installed  
+- MongoDB installed locally or have access to a MongoDB cloud instance  
+- Firebase project setup (for authentication)  
+
+---
+
+### 📥 Clone the Repositories
+
+```bash
+# Clone Client Repository
+git clone https://github.com/your-username/techtinker-client.git
+cd techtinker-client
+
+# Install Client Dependencies
+npm install
+
+# Create .env file in TechTinker-client with the following:
+# (replace with your actual Firebase credentials)
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+
+# Start Client
+npm run dev
 
 
