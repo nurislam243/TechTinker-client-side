@@ -29,7 +29,7 @@ const PopularServiceCard = ({service}) => {
                         {description.length <= 100 ? description : `${description.slice(0,100)}...` }
                 </p>
             </div>
-            <div className="h-10">
+            <div className="h-7">
 
             </div>
             <Link to={`/services/${_id}`} className="btn bottom-3 right-3 absolute btn-primary hover:outline">

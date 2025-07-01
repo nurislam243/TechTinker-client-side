@@ -10,7 +10,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
 
   const service = useLoaderData(); 
-  const { _id, description, imageUrl, price, serviceArea, serviceName, serviceProvider } = service;
+  const { _id, description, imageUrl, price, discountedPrice, serviceArea, serviceName, serviceProvider } = service;
 
  const handlePurchase = (e) => {
   e.preventDefault();
@@ -77,7 +77,22 @@ const ServiceDetails = () => {
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-green-600 font-bold text-2xl">৳{price}</span>
+          <div className="">
+            {
+              !discountedPrice && <span className="text-green-600 font-bold text-2xl">৳{price}</span>
+            }
+            {
+              discountedPrice ? <div className="flex gap-3"> 
+                <span 
+                  className="text-green-600 font-bold text-2xl"
+                >
+                  ৳{discountedPrice} 
+                  
+                </span>
+                <span className="line-through text-gray-500">৳{price}</span>
+              </div> : ""
+            }
+          </div>
           <button
             className="btn btn-primary hover:outline"
             onClick={() => document.getElementById("booking_modal").showModal()}

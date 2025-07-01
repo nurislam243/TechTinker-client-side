@@ -22,14 +22,12 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Product */}
+        {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Product</h3>
+          <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-primary">Features</a></li>
-            <li><a href="#" className="hover:text-primary">Pricing</a></li>
-            <li><a href="#" className="hover:text-primary">Integrations</a></li>
-            <li><a href="#" className="hover:text-primary">FAQs</a></li>
+            <li><Link to={'/'} className="hover:text-primary">Home</Link></li>
+            <li><Link to={'/services'} className="hover:text-primary">Services</Link></li>
           </ul>
         </div>
 

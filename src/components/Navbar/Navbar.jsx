@@ -64,6 +64,9 @@ const Navbar = () => {
     <>
       <li ><NavLink to='/' className={({ isActive }) =>isActive ? 'text-primary' : 'shake-hover text-base-content hover:text-primary'} onClick={() => setIsOpen(false)}>Home</NavLink></li>
       <li><NavLink to='/services' className={({ isActive }) =>isActive ? 'text-primary' : 'shake-hover text-base-content hover:text-primary'} onClick={() => setIsOpen(false)}>Services</NavLink></li>
+      <li><NavLink to='/offers' className={({ isActive }) =>isActive ? 'text-primary' : 'shake-hover text-base-content hover:text-primary'} onClick={() => setIsOpen(false)}>Offers</NavLink></li>
+      <li><NavLink to='/aboutUs' className={({ isActive }) =>isActive ? 'text-primary' : 'shake-hover text-base-content hover:text-primary'} onClick={() => setIsOpen(false)}>About Us</NavLink></li>
+
       {user && (
       <li>
         <details>
@@ -99,15 +102,15 @@ const Navbar = () => {
       <input id="navbar-drawer" type="checkbox" checked={isOpen} onChange={() => setIsOpen(!isOpen)} className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
-        <div className={`navbar max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 @min-[1536px]:px-0 transition-all duration-300 ${isShrunk ? 'py-1' : 'py-4'}`}>
-          <div className="navbar-start">
+        <div className={`flex max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 @min-[1536px]:px-0 transition-all duration-300 ${isShrunk ? 'py-1' : 'py-4'}`}>
+          <div className="">
             <div className="flex items-center">
               <img src="/logoTech.png" className={`transition-all duration-300 ${isShrunk ? 'w-[24px]' : 'w-[30px]'}`} alt="logo" />
               <Link to='/' className={`font-bold ml-2 transition-all text-primary duration-300 text-2xl`}>Tech<span className='text-secondary'>Tinker</span></Link>
             </div>
           </div>
 
-          <div className="navbar-end gap-4">
+          <div className="flex-1 gap-4 flex justify-end items-center">
             <div className="hidden @min-[520px]:flex items-center @min-[1023px]:gap-[26px] @min-[1053px]:gap-[35px] @min-[1073px]:gap-[44px] @min-[1096px]:gap-[60px] @min-[1131px]:gap-[80px]">
               <div className="hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-poppins text-[16px]">
