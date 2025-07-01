@@ -100,17 +100,12 @@
 }
 
 
-/* linear-gradient(#FF5722 26px, transparent 0) ,
-          linear-gradient(#009688 26px, transparent 0) ,
-          linear-gradient(#009688 26px, transparent 0) ,
-          linear-gradient(#FF5722 26px, transparent 0); */
-
 /* loading spinner style */
 
 .loader {
   width: 48px;
   height: 48px;
-  border: 3px solid #FFF;
+  border: 4px solid #FF3D00;
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -128,7 +123,7 @@
   height: 56px;
   border-radius: 50%;
   border: 3px solid;
-  border-color: #FF3D00 transparent;
+  border-color: #009688 transparent;
 }
 
 @keyframes rotation {
