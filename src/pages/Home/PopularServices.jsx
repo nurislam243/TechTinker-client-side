@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const PopularServices = ({servicesPromise}) => {
     const servicesData = use(servicesPromise);
-    const sixServicesData = servicesData.slice(0, 6);
+    const sixServicesData = servicesData.slice(0, 8);
   return (
     <div className="pt-8">
         <div className="text-center my-12">
@@ -15,7 +15,7 @@ const PopularServices = ({servicesPromise}) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-7 md:gap-5 lg:gap-7 xl:gap-6 2xl:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 @min-[1180px]:grid-cols-3 @min-[1462px]:grid-cols-4 gap-4 sm:gap-7 md:gap-5 lg:gap-7 xl:gap-6 2xl:gap-7">
             {
                 sixServicesData.map(service => <PopularServiceCard service={service}></PopularServiceCard>)
             }

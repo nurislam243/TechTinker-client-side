@@ -11,35 +11,30 @@ const PopularServiceCard = ({service}) => {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.2 }}
-            className="bg-base-200 border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-base-200 relative border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-            <img
-                className="rounded-t-lg w-full h-48 object-cover"
-                src={imageUrl}
-                alt="Tech Device Repair"
-            />
+            <div className="relative">
+                <img
+                    className="rounded-t-lg w-full h-48 object-cover"
+                    src={imageUrl}
+                    alt="Tech Device Repair"
+                />
+                <span className="text-xl font-bold text-primary absolute right-1 bottom-2 p-[1px] bg-black/35 rounded">৳ {price}</span>
+            </div>
             <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-secondary">
+                <h5 className="mb-2 text-xl font-bold tracking-tight text-secondary">
                     {serviceName}
                 </h5>
                 <p className="mb-3 font-normal text-base-content">
                         {description.length <= 100 ? description : `${description.slice(0,100)}...` }
                 </p>
-                <div className="flex items-center mb-4">
-                <img
-                    className="w-10 h-10 rounded-full mr-3"
-                    src={serviceProvider.image}
-                    alt="Provider"
-                />
-                <span className="text-sm font-bold text-base-content">{serviceProvider.name}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                <span className="text-xl font-bold text-primary/80">৳ {price}</span>
-                <Link to={`/services/${_id}`} className="btn btn-primary hover:outline">
-                    View Details
-                </Link>
-                </div>
             </div>
+            <div className="h-10">
+
+            </div>
+            <Link to={`/services/${_id}`} className="btn bottom-3 right-3 absolute btn-primary hover:outline">
+                View Details
+            </Link>
         </motion.div>
     );
 };
