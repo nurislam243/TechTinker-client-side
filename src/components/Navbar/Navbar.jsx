@@ -102,7 +102,7 @@ const Navbar = () => {
       <input id="navbar-drawer" type="checkbox" checked={isOpen} onChange={() => setIsOpen(!isOpen)} className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
-        <div className={`flex max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 @min-[1536px]:px-0 transition-all duration-300 ${isShrunk ? 'py-1' : 'py-4'}`}>
+        <div className={`flex items-center max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 @min-[1536px]:px-0 transition-all duration-300 ${isShrunk ? 'py-1' : 'py-4'}`}>
           <div className="">
             <div className="flex items-center">
               <img src="/logoTech.png" className={`transition-all duration-300 ${isShrunk ? 'w-[24px]' : 'w-[30px]'}`} alt="logo" />

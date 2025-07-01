@@ -15,6 +15,9 @@ import AllServices from '../pages/Services/AllServices';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Spinner from '../components/Ui/Spinner';
 import Offers from '../pages/Offers/Offers';
+import AboutUs from '../pages/AboutUs/AboutUs';
+import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import TermsAndConditions from '../pages/TermsAndCondition/TermsAndCondition';
 
 const router = createBrowserRouter([
     {
@@ -35,7 +38,20 @@ const router = createBrowserRouter([
             {
                 path: '/offers',
                 loader: () => fetch('https://techtinker-server.vercel.app/services'),
+                HydrateFallback: Spinner,
                 Component: Offers
+            },
+            {
+                path: '/aboutUs',
+                Component: AboutUs
+            },
+            {
+                path: '/privacy',
+                Component: PrivacyPolicy
+            },
+            {
+                path: '/terms',
+                Component: TermsAndConditions
             },
             {
                 path: '/add-service',

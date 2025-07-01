@@ -66,7 +66,7 @@ const Banner = () => {
             {
               sliderCategories.map((slider, index) => (
               <SwiperSlide key={slider.id}>
-                <div className="hero relative h-[calc(87vh-65px)] @min-[520px]:h-[calc(87vh-72px)] @min-[1024px]:h-[calc(87vh-120px)] overflow-hidden">                 
+                <div className="hero relative h-[calc(89vh-65px)] @min-[520px]:h-[calc(89vh-72px)] @min-[1024px]:h-[calc(89vh-120px)] overflow-hidden">                 
                   {/* Zoom Animated Background */}
                   <motion.div
                     key={activeIndex === index ? `active-${index}` : `inactive-${index}`}
