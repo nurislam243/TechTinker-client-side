@@ -31,7 +31,7 @@ const ToDoList = ({toDoPromise}) => {
                 </tr>
             </thead>
             <tbody>
-            {/* row */}
+                {/* row */}
                 {
                     toDoData.map(toDo => <ToDoRow toDo={toDo} ></ToDoRow>)
                 }

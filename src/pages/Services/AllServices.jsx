@@ -65,7 +65,7 @@ const AllServices = () => {
                 {/* sort */}
                 <div className="flex items-center justify-start @min-[1586px]:justify-end mb-7 -mt-3 @min-[1586px]:mr-[70px] gap-2">
                     <p>Sort By: </p>
-                    <select className="border p-1.5 rounded" onChange={(e) => handleSort(e.target.value)}>
+                    <select className="border border-gray-400 p-1.5 rounded" onChange={(e) => handleSort(e.target.value)}>
                         <option value="default">Default</option>
                         <option value="asc">Price: Low to High</option>
                         <option value="desc">Price: High to Low</option>

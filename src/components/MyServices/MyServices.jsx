@@ -1,8 +1,8 @@
 import React, { use, useState } from 'react';
-import MyServiceCard from '../MyServiceCard/MyServiceCard';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import Empty from '../Empty/Empty';
+import MyServiceRow from '../MyServiceRow/MyServiceRow';
 
 const MyServices = ({manageServicesPromise}) => {
     const initialServices = use(manageServicesPromise);
@@ -66,14 +66,30 @@ const MyServices = ({manageServicesPromise}) => {
     }
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[26px] my-12'>
-            {
-              services.map(service => <MyServiceCard 
-                service={service} 
-                handleDeleteService={handleDeleteService} 
-                handleUpdateService={handleUpdateService} ></MyServiceCard>)
-            }
-        </div>
+      <div className="overflow-x-auto my-12">
+        <table className="table w-full">
+          <thead className="bg-base-300 text-base font-semibold">
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Area</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {services.map((service) => (
+              <MyServiceRow
+                key={service._id}
+                service={service}
+                handleDeleteService={handleDeleteService}
+                handleUpdateService={handleUpdateService}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
     );
 };
 
