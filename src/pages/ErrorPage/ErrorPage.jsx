@@ -14,7 +14,7 @@ const ErrorPage = () => {
             <title>Page Not Found | TechTinker</title>
             </Helmet>
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center min-h-screen">
                 <div className="px-2 mt-6">
                     <div className="flex mx-auto justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]">
                         <Lottie animationData={error404} loop={true} />
