@@ -10,7 +10,7 @@
 
 🔗 **Live Site Link**: [https://techtinker2.web.app/](https://techtinker2.web.app/)
 
-🔗 **Server Repository**: [https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-nurislam243](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-nurislam243)
+🔗 **Server Repository**: [https://github.com/nurislam243/TechTinker-server-side](https://github.com/nurislam243/TechTinker-server-side)
 
 ---
 
