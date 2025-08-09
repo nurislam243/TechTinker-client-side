@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from 'react-router';
+import { motion } from "framer-motion";
 
 const Offers = () => {
   const data = useLoaderData();
@@ -10,8 +11,9 @@ const Offers = () => {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 @min-[928px]:grid-cols-3 @min-[1210px]:grid-cols-4 gap-6">
         {offers.map(offer => (
-          <div
+          <motion.div
             key={offer._id}
+            whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
             className="bg-base-200 rounded-lg shadow hover:shadow-md transition"
           >
             <img
@@ -36,7 +38,7 @@ const Offers = () => {
                     </Link>
                 </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
