@@ -8,8 +8,8 @@ const PopularServiceCard = ({service}) => {
         <motion.div 
             key={service.id}
             initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            whileInView={{ scale: 1, opacity: 1, transition: { duration: 1, ease: "easeOut" } }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
             viewport={{ once: false, amount: 0.2 }}
             className="bg-base-200 relative border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
         >

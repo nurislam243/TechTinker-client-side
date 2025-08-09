@@ -1,4 +1,3 @@
-import React from 'react';
 import Marquee from "react-fast-marquee";
 
 const Testimonials = () => {
@@ -77,7 +76,10 @@ const Testimonials = () => {
       <div className="">
         <Marquee pauseOnHover={true} className='py-4'>
           {testimonials.map(({ id, name, role, comment, image, rating }) => (
-            <div key={id} className="card bg-base-100 border border-gray-200 max-w-[180px] @min-[360px]:max-w-[200px] @min-[1220px]:max-w-[290px] min-h-[310px] @min-[360px]:min-h-[298px] @min-[1200px]:min-h-[245px] mx-2.5 shadow-md hover:shadow-xl transition duration-300">
+            <div 
+              key={id}
+              className="card bg-base-100 border border-gray-200 max-w-[180px] @min-[360px]:max-w-[200px] @min-[1220px]:max-w-[290px] min-h-[310px] @min-[360px]:min-h-[298px] @min-[1200px]:min-h-[245px] mx-2.5 shadow-md hover:shadow-xl transition duration-300"
+            >
               <div className="card-body">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={image} alt={name} className="w-12 h-12 rounded-full" />
