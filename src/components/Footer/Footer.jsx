@@ -7,7 +7,7 @@ import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-neutral">
       <div className="max-w-[1536px] mx-auto px-[15px] @min-[350px]:px-[20px] @min-[390px]:px-[27px] @min-[650px]:px-[35px] @min-[1570px]:px-0 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand Section */}
         <div>
@@ -17,7 +17,7 @@ const Footer = () => {
               <Link to='/' className={`font-bold ml-2 transition-all text-primary duration-300 text-2xl`}>Tech<span className='text-secondary'>Tinker</span></Link>
             </div>
           </div>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-neutral-content/90">
             Empowering creators and professionals to share services and connect with communities through technology.
           </p>
         </div>
@@ -25,7 +25,7 @@ const Footer = () => {
         {/* Quick Links */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm text-neutral-content">
             <li><Link to={'/'} className="hover:text-primary">Home</Link></li>
             <li><Link to={'/services'} className="hover:text-primary">Services</Link></li>
             <li><Link to={'/offers'} className="hover:text-primary">Offers</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Company */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Company</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm text-neutral-content">
             <li><Link to={'/aboutUs'} className="hover:text-primary">About Us</Link></li>
             <li><Link to={'/privacy'} className="hover:text-primary">Privacy Policy</Link></li>
             <li><Link to={'/terms'} className="hover:text-primary">Terms & Conditions</Link></li>
@@ -63,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-gray-800 text-center py-4 text-sm text-gray-500">
+      <div className="border-t border-neutral-content/20 text-center py-4 text-sm text-neutral-content">
         © {new Date().getFullYear()} TechTinker. All rights reserved.
       </div>
     </footer>
