@@ -79,12 +79,12 @@ const ServiceDetails = () => {
         <div className="flex justify-between items-center">
           <div className="">
             {
-              !discountedPrice && <span className="text-green-600 font-bold text-2xl">৳{price}</span>
+              !discountedPrice && <span className="text-primary font-bold text-2xl">৳{price}</span>
             }
             {
               discountedPrice ? <div className="flex gap-3"> 
                 <span 
-                  className="text-green-600 font-bold text-2xl"
+                  className="text-primary font-bold text-2xl"
                 >
                   ৳{discountedPrice} 
                   

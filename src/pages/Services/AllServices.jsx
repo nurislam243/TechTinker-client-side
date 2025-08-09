@@ -45,11 +45,11 @@ const AllServices = () => {
             <Helmet>
                 <title>All Services | TechTinker</title>
             </Helmet>
-            <div className="text-center p-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <div className="text-center px-2 sm:px-6 md:px-7 lg:px-12 py-5 sm:py-6 md:py-7 lg:py-12">
+                <h2 className="text-2xl @min-[460px]:text-3xl md:text-4xl font-bold text-primary">
                     Explore All Available Tech Services
                 </h2>
-                <p className="text-base md:text-lg mt-2 text-base-content/50 max-w-xl mx-auto">Find the perfect tech solution for your device — from repairs to upgrades, trusted by experts near you.</p>
+                <p className="text-sm sm:text-base md:text-lg mt-2 text-base-content/50 max-w-xl mx-auto">Find the perfect tech solution for your device — from repairs to upgrades, trusted by experts near you.</p>
             </div>
 
             <div className="">
@@ -63,7 +63,7 @@ const AllServices = () => {
                     />             
                 </div>
                 {/* sort */}
-                <div className="flex items-center justify-start @min-[1586px]:justify-end mb-7 -mt-3 @min-[1586px]:mr-[70px] gap-2">
+                <div className="flex items-center justify-start @min-[1586px]:justify-end mb-7 -mt-3  gap-2">
                     <p>Sort By: </p>
                     <select className="border border-gray-400 p-1.5 rounded" onChange={(e) => handleSort(e.target.value)}>
                         <option value="default">Default</option>
@@ -77,7 +77,7 @@ const AllServices = () => {
             </div>
 
             {/* services card */}
-            <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-9">
+            <div className="gap-5 grid @min-[]: @min-[650px]:grid-cols-2 @min-[1100px]:grid-cols-3 @min-[1450px]:grid-cols-4">
                 {
                     services.map(service => <ServiceCard service={service}></ServiceCard>)
                 }
