@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { motion } from "framer-motion";
 
 const PopularServiceCard = ({service}) => {
-    const {description, imageUrl, price, serviceArea, serviceName, serviceProvider, _id} = service;
+    const {description, imageUrl, price, serviceName, _id} = service;
     return (
         <motion.div 
             key={service.id}

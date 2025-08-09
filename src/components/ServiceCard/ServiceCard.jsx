@@ -1,9 +1,11 @@
-import React from 'react';
+import { motion } from "framer-motion";
 import { Link } from 'react-router';
+
 const ServiceCard = ({service}) => {
     const { _id, imageUrl, price, serviceArea, serviceName } = service;
     return (
-          <div
+          <motion.div
+            whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
             className="@min-[800px]:gap-4 rounded-md p-2 @min-[330px]:p-3 @min-[400px]:p-4 shadow hover:shadow-xl border border-gray-300 transition-all duration-300 bg-base-200/70 hover:bg-base-200"
           >
             {/* Service Image */}
@@ -43,7 +45,7 @@ const ServiceCard = ({service}) => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
     );
 };
 
