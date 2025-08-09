@@ -13,37 +13,37 @@ const Banner = () => {
   const sliderCategories = [
   {
     "id": 1,
-    "image": "https://i.ibb.co/8gd67W5w/technician-wearing-white-antistatic-gloves-plaid-shirt-sitting-his-desk-using-precision-screwdriver.jpg",
+    "image": "https://i.ibb.co.com/0prZ1byF/technician-wearing-white-antistatic-gloves-plaid-shirt-sitting-his-desk-using-precision-screwdriver.webp",
     "title": "Empower Your Devices with Smart Repair",
     "description": "Get expert solutions for all your tech troubles—fast, affordable, and reliable."
   },
   {
     "id": 2,
-    "image": "https://i.ibb.co/LzqScnM0/classmates-studying-home-1.jpg",
+    "image": "https://i.ibb.co.com/yn5TDyDS/classmates-studying-home-1.webp",
     "title": "Your Gadget’s Best Friend",
     "description": "Trust TechTinker to fix your phones, laptops, and gadgets with precision care."
   },
   {
     "id": 3,
-    "image": "https://i.ibb.co/pBdPF03N/view-futuristic-musician-1.jpg",
+    "image": "https://i.ibb.co.com/cSgSg4rQ/view-futuristic-musician-1.webp",
     "title": "Book. Fix. Relax.",
     "description": "Book a service in minutes. Let our experts do the rest—right at your doorstep."
   },
   {
     "id": 4,
-    "image": "https://i.ibb.co/0RLw8tqp/big-brother-surveillance-concept-composition-2.jpg",
+    "image": "https://i.ibb.co.com/Lz1PZMwn/big-brother-surveillance-concept-composition-2.webp",
     "title": "Smart Solutions, Smarter Devices",
     "description": "Whether it’s hardware or software, we’ve got your tech needs covered."
   },
   {
     "id": 5,
-    "image": "https://i.ibb.co/4wpFKWcJ/young-male-technician-repairing-computer-workshop-min.jpg",
+    "image": "https://i.ibb.co.com/DPhbS8gn/young-male-technician-repairing-computer-workshop-min.webp",
     "title": "Tech Care You Can Count On",
     "description": "Certified professionals, genuine parts, and transparent pricing—only at TechTinker."
   },
   {
     "id": 6,
-    "image": "https://i.ibb.co/fYBH009K/electronic-technician-holds-two-identical-smartphones-comparison-one-hand-broken-another-new-1.jpg",
+    "image": "https://i.ibb.co.com/j9Q7ft2c/electronic-technician-holds-two-identical-smartphones-comparison-one-hand-broken-another-new-1.webp",
     "title": "We Revive, You Reuse",
     "description": "Give your old devices a new life. Let us handle the repairs sustainably."
   }
