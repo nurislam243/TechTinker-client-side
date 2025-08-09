@@ -8,7 +8,7 @@ const AboutUs = () => {
         {/* Image Section */}
         <div>
           <img
-            src="https://images.pexels.com/photos/58709/pexels-photo-58709.jpeg?_gl=1*1apasao*_ga*MjY3NzQxOTY5LjE3NTEzNzg5ODc.*_ga_8JE65Q40S6*czE3NTEzNzg5ODckbzEkZzEkdDE3NTEzODA5MTgkajQyJGwwJGgw"
+            src="https://i.ibb.co.com/5XhdcnyG/pexels-photo-58709.webp"
             alt="Tech Service"
             className="w-full h-auto rounded-xl shadow-md"
           />
