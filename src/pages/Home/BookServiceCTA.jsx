@@ -5,7 +5,13 @@ import { motion } from 'framer-motion';
 const BookServiceCTA = () => {
 
   return (
-    <section className="bg-primary/5 relative text-base-content py-12 px-6 @min-[1320px]:px-12 flex flex-col-reverse md:flex-row items-center gap-20 lg:gap-0 justify-between shadow-lg mx-auto my-12">
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}      
+      whileInView={{ opacity: 1, y: 0}}    
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      viewport={{ once: false, amount: 0.3 }} 
+      className="bg-primary/5 relative text-base-content py-12 px-6 @min-[1320px]:px-12 flex flex-col-reverse md:flex-row items-center gap-20 lg:gap-0 justify-between shadow-lg mx-auto my-12"
+    >
       {/* Text Content */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}      
@@ -35,7 +41,7 @@ const BookServiceCTA = () => {
             whileInView={{ opacity: 1, y: 0}}    
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: false, amount: 0.3 }} 
-            src="https://i.ibb.co/9mrjX4jJ/young-male-technician-installing-new-components-broken-cpu-customer-latin-man-running-repair-shop-mi.jpg"
+            src="https://i.ibb.co.com/BKTZSkbX/young-male-technician-installing-new-components-broken-cpu-customer-latin-man-running-repair-shop-mi.webp"
             alt="Tech Repair Service"
             className="@min-[490px]:max-w-[250px] @min-[768px]:max-w-[200px] @min-[970px]:max-w-[250px] @min-[1080px]:max-w-[300px] @min-[1190px]:max-w-[350px] shadow-lg"
           />
@@ -46,13 +52,13 @@ const BookServiceCTA = () => {
             whileInView={{ opacity: 1, y: 0}}    
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: false, amount: 0.3 }} 
-            src="https://i.ibb.co/fdhT73nn/close-up-woman-repairing-computer-chips-min.jpg"
+            src="https://i.ibb.co.com/gL8mbSqk/close-up-woman-repairing-computer-chips-min-1-1.jpg"
             alt="Tech Repair Service"
             className=" @min-[490px]:max-w-[250px] @min-[768px]:max-w-[200px] @min-[970px]:max-w-[250px] @min-[1080px]:max-w-[300px] @min-[1190px]:max-w-[350px] shadow-lg"
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
