@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
         {/* Hero Image */}
         <div>
           <img
-            src="https://i.ibb.co/pB6S5WS9/pexels-mikhail-nilov-7534101.jpg"
+            src="https://i.ibb.co.com/7JBgznJ4/pexels-mikhail-nilov-7534101.webp"
             alt="Privacy Protection"
             className="w-full h-auto rounded-xl shadow-md"
           />
@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
       {/* Middle Full-Width Image */}
       <div className="mt-16">
         <img
-          src="https://i.ibb.co/G4pbnVPb/pexels-shkrabaanthony-5475779-1.jpg"
+          src="https://i.ibb.co.com/GvSZBJrt/pexels-shkrabaanthony-5475779-1-1.webp"
           alt="Secure TechTinker System"
           className="w-full max-h-[400px] object-cover rounded-xl shadow-lg"
         />

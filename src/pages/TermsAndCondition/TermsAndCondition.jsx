@@ -7,7 +7,7 @@ const TermsAndConditions = () => {
         {/* Image Section */}
         <div>
           <img
-            src="https://i.ibb.co/1GzjpHY4/pexels-rdne-7821937-1.jpg"
+            src="https://i.ibb.co.com/21m94wp3/pexels-rdne-7821937-1.webp"
             alt="Terms and Conditions"
             className="w-full h-auto rounded-xl shadow-lg"
           />
